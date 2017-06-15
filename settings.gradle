@@ -1,1 +1,1 @@
-include ':VideoInFragment', ':VideoInView', ':VideoNoAds'
+include ':VideoInFragment', ':VideoInView', ':VideoNoAds', ':ControlsContentControlsNo10Sec'
