@@ -1,1 +1,1 @@
-include ':VideoInFragment'
+include ':VideoInFragment', ':VideoInView'
