@@ -1,5 +1,6 @@
 include ':VideoInFragment',
         ':VideoInView',
-        'ControlsModifiedContentControls',
+        ':ControlsModifiedContentControls',
         ':ControlsCustomContentControls',
-        ':ControlsThemedControls'
+        ':ControlsThemedControls',
+        ':ControlsSidebarVolume'

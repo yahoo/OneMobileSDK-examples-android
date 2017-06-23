@@ -131,4 +131,5 @@
             android:src="@drawable/dr_cc"
             android:text="subs" />
     </LinearLayout>
+
 </LinearLayout>

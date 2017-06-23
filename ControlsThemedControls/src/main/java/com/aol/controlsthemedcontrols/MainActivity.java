@@ -1,7 +1,6 @@
 package com.aol.controlsthemedcontrols;
 
 import android.app.FragmentManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -49,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
                         playerFragment.getBinder().setPlayer(player);
 
                         PlayerControlsView contentControls = (PlayerControlsView) playerFragment.getPlayerView().getContentControls();
-                        contentControls.setMainColor(Color.YELLOW);
-                        contentControls.setAccentColor(Color.WHITE);
+                        contentControls.setMainColor(getResources().getColor(R.color.colorPrimary));
+                        contentControls.setAccentColor(getResources().getColor(R.color.colorAccent));
 
                         AdControlsView adControls = (AdControlsView) playerFragment.getPlayerView().getAdControls();
                         adControls.setMainColor(getResources().getColor(R.color.colorPrimary));
