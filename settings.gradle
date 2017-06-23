@@ -1,1 +1,5 @@
-include ':VideoInFragment', ':VideoInView', 'ControlsModifiedContentControls',':ControlsCustomContentControls'
+include ':VideoInFragment',
+        ':VideoInView',
+        'ControlsModifiedContentControls',
+        ':ControlsCustomContentControls',
+        ':ControlsThemedControls'
