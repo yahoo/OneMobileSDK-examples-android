@@ -6,9 +6,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
@@ -19,8 +16,13 @@ allprojects {
 }
 
 ext {
-    oneMobileSDK = "com.aol.one.publishers.android:sdk:2.10"
-    appCompat = 'com.android.support:appcompat-v7:25.3.1'
+    COMPILE_SDK_VERSION = 25
+    BUILD_TOOLS_VERSION = "25.0.3"
+    MIN_SDK_VERSION = 16
+    TARGET_SDK_VERSION = 25
+    ONE_MOBILE_SDK = "com.aol.one.publishers.android:sdk:2.10"
+    APP_COMPAT = 'com.android.support:appcompat-v7:25.3.1'
+    RESOURCES = project(':Resources')
 }
 
 task clean(type: Delete) {
