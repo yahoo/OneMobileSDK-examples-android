@@ -1,0 +1,6 @@
+include ':VideoInFragment',
+        ':VideoInView',
+        ':ControlsModifiedContentControls',
+        ':ControlsCustomContentControls',
+        ':ControlsThemedControls',
+        ':ControlsSidebarVolume'
