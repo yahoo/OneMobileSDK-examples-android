@@ -27,4 +27,5 @@ dependencies {
 
     compile oneMobileSDK
     compile appCompat
+    compile project(':Resources')
 }
