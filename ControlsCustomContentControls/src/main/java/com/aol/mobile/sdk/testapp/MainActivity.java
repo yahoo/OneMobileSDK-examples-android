@@ -1,4 +1,5 @@
-package com.aol.mobile.sdk.example.videoinfragment;
+package com.aol.mobile.sdk.testapp;
+
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
+    public static final String VIDEO_ID = "59397934955a316f1c4f65b4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 .buildForVideo(VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
+                        playerFragment.getBinder()
+                                .getPlayerView()
+                                .setVideoControlsView(new CustomContentControls(getApplicationContext(), null, 0));
+                        player.turnOffSubtitles();
                         playerFragment.getBinder().setPlayer(player);
                     }
 

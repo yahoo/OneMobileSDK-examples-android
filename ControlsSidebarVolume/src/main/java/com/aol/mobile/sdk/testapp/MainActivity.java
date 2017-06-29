@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.example.controlssidebarvolume;
+package com.aol.mobile.sdk.testapp;
 
 import android.app.FragmentManager;
 import android.content.Context;

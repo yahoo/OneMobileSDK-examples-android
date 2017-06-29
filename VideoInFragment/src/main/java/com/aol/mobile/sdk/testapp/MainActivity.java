@@ -1,5 +1,4 @@
-package com.aol.mobile.sdk.example.controlsmodifiedcontentcontrols;
-
+package com.aol.mobile.sdk.testapp;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 .buildForVideo(VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-                        playerFragment.getBinder().getPlayerView().setVideoControlsView(new ModifiedContentControls(getApplicationContext()));
                         playerFragment.getBinder().setPlayer(player);
                     }
 

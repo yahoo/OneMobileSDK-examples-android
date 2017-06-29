@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.example.videoinview;
+package com.aol.mobile.sdk.testapp;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
