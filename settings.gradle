@@ -1,7 +1,8 @@
-include ':Resources',
-        ':VideoInFragment',
-        ':VideoInView',
-        ':ControlsModifiedContentControls',
-        ':ControlsCustomContentControls',
-        ':ControlsThemedControls',
-        ':ControlsSidebarVolume'
+include ':Resources'
+include ':VideoInFragment'
+include ':VideoInView'
+include ':ControlsModifiedContentControls'
+include ':ControlsCustomContentControls'
+include ':ControlsThemedControls'
+include ':ControlsSidebarVolume'
+include ':EnVRmntRenderer'
