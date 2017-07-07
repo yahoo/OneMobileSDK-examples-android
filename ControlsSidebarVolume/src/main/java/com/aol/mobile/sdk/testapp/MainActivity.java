@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getFragmentManager();
         final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
-        playerFragment.setRetainInstance(true);
 
         new OneSDKBuilder(getApplicationContext())
                 .create(new OneSDKBuilder.Callback() {
