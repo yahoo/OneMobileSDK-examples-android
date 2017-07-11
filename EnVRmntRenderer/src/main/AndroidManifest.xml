@@ -1,6 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.aol.mobile.sdk.testapp">
+<manifest package="com.aol.mobile.sdk.testapp"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -10,10 +10,11 @@
 
         <activity
             android:name=".VideoActivity"
-            android:configChanges="screenSize|orientation">
+            android:screenOrientation="portrait">
+            <!-- Please note that envrmnt content requires locked activity orientation -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
