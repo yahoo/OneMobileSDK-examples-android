@@ -4,7 +4,6 @@ import android.animation.ValueAnimator;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -98,10 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton makeImageButton(int imageResource) {
         ImageButton button = new ImageButton(getApplicationContext());
-        button.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.background_side_bar_button));
+        button.setBackground(null);
         button.setImageResource(imageResource);
-        button.setLayoutParams(new RelativeLayout.LayoutParams(111, 111));
-        button.setPadding(21, 21, 21, 21);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(112, 112);
+        layoutParams.setMargins(5, 5, 5, 5);
+        button.setLayoutParams(layoutParams);
+        button.setPadding(0, 0, 0, 0);
         button.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
         return button;
