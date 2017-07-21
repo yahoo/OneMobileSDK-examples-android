@@ -5,4 +5,12 @@ dependencies {
     compile APP_COMPAT
     compile RESOURCES
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    androidTestCompile(ESPRESSO_CORE) {
+        exclude module: 'support-annotations'
+    }
+
+    androidTestCompile(SCREENGRAB) {
+        exclude module: 'support-annotations'
+    }
 }

@@ -1,6 +1,5 @@
 package com.aol.mobile.sdk.testapp;
 
-
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +13,7 @@ import com.aol.mobile.sdk.player.view.PlayerFragment;
 
 public class MainActivity extends AppCompatActivity {
     public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
+    private static PlayerFragment playerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getFragmentManager();
-        final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
+        playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
 
         new OneSDKBuilder(getApplicationContext())
                 .create(new OneSDKBuilder.Callback() {
@@ -52,5 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    public static PlayerFragment getPlayerFragment() {
+        return playerFragment;
     }
 }

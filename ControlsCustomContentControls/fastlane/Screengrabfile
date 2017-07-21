@@ -1,0 +1,17 @@
+# remove the leading '#' to uncomment lines
+
+app_package_name 'com.aol.mobile.sdk.testapp'
+# use_tests_in_packages ['your.screenshot.tests.package']
+
+app_apk_path 'build/outputs/apk/ControlsCustomContentControls-debug.apk'
+tests_apk_path 'build/outputs/apk/ControlsCustomContentControls-debug-androidTest.apk'
+
+locales ['en-US']
+
+# clear all previously generated screenshots in your local output directory before creating new ones
+# clear_previous_screenshots true
+
+# For more information about all available options run
+#   fastlane screengrab --help
+
+output_directory '../generatedScreenshots'

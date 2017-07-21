@@ -24,6 +24,8 @@ ext {
     ONE_MOBILE_SDK = "com.aol.one.publishers.android:sdk:2.11"
     APP_COMPAT = 'com.android.support:appcompat-v7:25.3.1'
     RESOURCES = project(':Resources')
+    ESPRESSO_CORE = 'com.android.support.test.espresso:espresso-core:2.2.2'
+    SCREENGRAB = 'tools.fastlane:screengrab:1.0.3'
 }
 
 task clean(type: Delete) {

@@ -14,7 +14,7 @@ import com.aol.mobile.sdk.player.view.PlayerView;
 public class MainActivity extends AppCompatActivity {
     public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
 
-    private Binder binder = new Binder();
+    private static Binder binder = new Binder();
     private PlayerView playerView;
 
     @Override
@@ -71,5 +71,9 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         playerView.dispose();
         binder.onDestroy();
+    }
+
+    public static Binder getBinder() {
+        return binder;
     }
 }
