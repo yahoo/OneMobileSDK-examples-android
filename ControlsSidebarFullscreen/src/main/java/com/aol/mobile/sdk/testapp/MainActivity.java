@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,7 +22,7 @@ import com.aol.mobile.sdk.player.view.PlayerFragment;
 public class MainActivity extends AppCompatActivity {
     public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
 
-    private boolean isFullscreen;
+    private boolean isFullscreenActive;
     private PlayerFragment playerFragment;
     private View fragmentParent;
     private RelativeLayout.LayoutParams ogLayoutParams;
@@ -72,21 +73,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addSideBarButton(@NonNull SidePanel sidePanel) {
-        ImageButton fullscreenButton = makeImageButton(R.drawable.fullscreen);
+        final ImageButton fullscreenButton = makeFullscreenButton();
         fullscreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final RelativeLayout.LayoutParams curLayoutParams = (RelativeLayout.LayoutParams) playerFragment.getPlayerView().getLayoutParams();
-                if (isFullscreen) {
+                if (isFullscreenActive) {
                     getSupportActionBar().show();
                     animateFromFullscreen(curLayoutParams);
 
-                    isFullscreen = false;
+                    fullscreenButton.setActivated(false);
+                    isFullscreenActive = false;
                 } else {
                     getSupportActionBar().hide();
                     animateToFullscreen(curLayoutParams);
 
-                    isFullscreen = true;
+                    fullscreenButton.setActivated(true);
+                    isFullscreenActive = true;
                 }
             }
         });
@@ -95,10 +98,9 @@ public class MainActivity extends AppCompatActivity {
         sidePanel.show();
     }
 
-    private ImageButton makeImageButton(int imageResource) {
+    private ImageButton makeFullscreenButton() {
         ImageButton button = new ImageButton(getApplicationContext());
-        button.setBackground(null);
-        button.setImageResource(imageResource);
+        button.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selector_btn_fullscreen));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(112, 112);
         layoutParams.setMargins(5, 5, 5, 5);
         button.setLayoutParams(layoutParams);
