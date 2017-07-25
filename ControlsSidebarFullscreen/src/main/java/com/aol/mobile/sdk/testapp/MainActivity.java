@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addSideBarButton(@NonNull SidePanel sidePanel) {
-        ImageButton fullscreenButton = makeImageButton(R.drawable.fullscreen);
+        final ImageButton fullscreenButton = makeFullscreenButton();
         fullscreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +82,13 @@ public class MainActivity extends AppCompatActivity {
                     getSupportActionBar().show();
                     animateFromFullscreen(curLayoutParams);
 
+                    fullscreenButton.setActivated(false);
                     isFullscreen = false;
                 } else {
                     getSupportActionBar().hide();
                     animateToFullscreen(curLayoutParams);
 
+                    fullscreenButton.setActivated(true);
                     isFullscreen = true;
                 }
             }
@@ -95,10 +98,9 @@ public class MainActivity extends AppCompatActivity {
         sidePanel.show();
     }
 
-    private ImageButton makeImageButton(int imageResource) {
+    private ImageButton makeFullscreenButton() {
         ImageButton button = new ImageButton(getApplicationContext());
-        button.setBackground(null);
-        button.setImageResource(imageResource);
+        button.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selector_btn_fullscreen));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(112, 112);
         layoutParams.setMargins(5, 5, 5, 5);
         button.setLayoutParams(layoutParams);
