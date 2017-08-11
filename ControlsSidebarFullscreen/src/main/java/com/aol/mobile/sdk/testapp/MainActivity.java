@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
 
     private boolean isFullscreen;
-    private PlayerFragment playerFragment;
+    private static PlayerFragment playerFragment;
     private View fragmentParent;
     private RelativeLayout.LayoutParams ogLayoutParams;
 
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void addSideBarButton(@NonNull SidePanel sidePanel) {
         ImageButton fullscreenButton = makeImageButton(R.drawable.fullscreen);
+        fullscreenButton.setId(42);
         fullscreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,5 +134,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         valueAnimator.start();
+    }
+
+    public static PlayerFragment getPlayerFragment() {
+        return playerFragment;
     }
 }

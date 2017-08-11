@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String[] VIDEO_LIST = new String[]{"593967be9e45105fa1b5939a", "577cc23d50954952cc56bc47", "5939698f85eb427b86aa0a14"};
+    private static PlayerFragment playerFragment;
 
     /**
      * VIDEO_LIST constant above has 3 values. It means we request only 3 videos.
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getFragmentManager();
-        final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
+        playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
 
         new OneSDKBuilder(getApplicationContext())
                 .create(new OneSDKBuilder.Callback() {
@@ -90,5 +91,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    public static PlayerFragment getPlayerFragment() {
+        return playerFragment;
     }
 }
