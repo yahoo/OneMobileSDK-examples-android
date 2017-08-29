@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/icon_fullscreen" android:state_activated="false" android:state_pressed="false" />
+    <item android:drawable="@drawable/icon_fullscreen_active" android:state_activated="false" android:state_pressed="true" />
+    <item android:drawable="@drawable/icon_fullscreen_out" android:state_activated="true" android:state_pressed="false" />
+    <item android:drawable="@drawable/icon_fullscreen_out_active" android:state_activated="true" android:state_pressed="true" />
+</selector>
