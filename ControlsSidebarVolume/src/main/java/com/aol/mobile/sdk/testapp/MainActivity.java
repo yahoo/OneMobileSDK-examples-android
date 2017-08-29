@@ -110,9 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton makeImageButton(int imageResource) {
         ImageButton button = new ImageButton(getApplicationContext());
-        button.setBackground(getResources().getDrawable(R.drawable.background_side_bar_button));
+        button.setBackground(null);
         button.setImageResource(imageResource);
-        button.setLayoutParams(new LinearLayout.LayoutParams(121, 121));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(112, 112);
+        layoutParams.setMargins(5, 5, 5, 5);
+        button.setLayoutParams(layoutParams);
         button.setPadding(0, 0, 0, 0);
         button.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
