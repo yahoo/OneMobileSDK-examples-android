@@ -12,12 +12,9 @@ import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHolder> {
-    private HashMap<Integer, String> vidByPosition;
-    private HashMap<Integer, Binder> binderByPosition = new HashMap<>();
+    private Binder[] binders = new Binder[0];
+    private String[] videos;
     private OneSDK oneSDK;
 
     @Override
@@ -34,11 +31,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
             return;
         }
 
-        if (binderByPosition.get(position) == null) {
+        if (binders[position] == null) {
             final Binder binder = new Binder();
             oneSDK.createBuilder()
                     .setAutoplay(false)
-                    .buildForVideo(vidByPosition.get(position), new Player.Callback() {
+                    .buildForVideo(videos[position], new Player.Callback() {
                         @Override
                         public void success(@NonNull Player player) {
                             binder.setPlayer(player);
@@ -49,35 +46,38 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
                         public void error(@NonNull Exception e) {
                         }
                     });
-            binderByPosition.put(position, binder);
+            binders[position] = binder;
         }
     }
 
     @Override
     public void onViewDetachedFromWindow(PlayerHolder holder) {
         super.onViewDetachedFromWindow(holder);
-        if (binderByPosition.get(holder.getAdapterPosition()) != null && binderByPosition.get(holder.getAdapterPosition()).getPlayer() != null) {
-            binderByPosition.get(holder.getAdapterPosition()).getPlayer().pause();
-            binderByPosition.get(holder.getAdapterPosition()).setPlayerView(null);
+        Binder binder = binders[holder.getAdapterPosition()];
+        if (binder != null && binder.getPlayer() != null) {
+            binder.getPlayer().pause();
+            binder.setPlayerView(null);
         }
     }
 
     @Override
     public void onViewAttachedToWindow(PlayerHolder holder) {
         super.onViewAttachedToWindow(holder);
-        if (binderByPosition.get(holder.getAdapterPosition()) != null && binderByPosition.get(holder.getAdapterPosition()).getPlayer() != null) {
-            binderByPosition.get(holder.getAdapterPosition()).setPlayerView(holder.playerView);
+        Binder binder = binders[holder.getAdapterPosition()];
+        if (binder != null && binder.getPlayer() != null) {
+            binder.setPlayerView(holder.playerView);
         }
     }
 
     @Override
     public int getItemCount() {
-        return vidByPosition != null ? vidByPosition.size() : 0;
+        return videos != null ? videos.length : 0;
     }
 
-    public void setData(@NonNull final OneSDK oneSDK, @NonNull HashMap<Integer, String> vidByPosition) {
+    public void setData(@NonNull final OneSDK oneSDK, @NonNull String[] videos) {
         this.oneSDK = oneSDK;
-        this.vidByPosition = vidByPosition;
+        this.videos = videos;
+        binders = new Binder[videos.length];
         notifyDataSetChanged();
     }
 
@@ -98,25 +98,25 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     }
 
     public void bindersOnResume() {
-        for (Map.Entry<Integer, Binder> entry : binderByPosition.entrySet()) {
-            if (entry.getValue() != null) {
-                entry.getValue().onPause();
+        for (Binder binder : binders) {
+            if (binder != null) {
+                binder.onPause();
             }
         }
     }
 
     public void bindersOnPause() {
-        for (Map.Entry<Integer, Binder> entry : binderByPosition.entrySet()) {
-            if (entry.getValue() != null) {
-                entry.getValue().onPause();
+        for (Binder binder : binders) {
+            if (binder != null) {
+                binder.onPause();
             }
         }
     }
 
     public void bindersOnDestroy() {
-        for (Map.Entry<Integer, Binder> entry : binderByPosition.entrySet()) {
-            if (entry.getValue() != null) {
-                entry.getValue().onPause();
+        for (Binder binder : binders) {
+            if (binder != null) {
+                binder.onPause();
             }
         }
     }

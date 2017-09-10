@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 
-import java.util.HashMap;
-
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private PlayerAdapter playerAdapter;
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 .create(new OneSDKBuilder.Callback() {
                     @Override
                     public void onSuccess(@NonNull OneSDK oneSDK) {
-                        playerAdapter.setData(oneSDK, getVidsForPositions());
+                        playerAdapter.setData(oneSDK, getVideos());
                     }
 
                     @Override
@@ -45,19 +43,19 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private HashMap<Integer, String> getVidsForPositions() {
-        HashMap<Integer, String> vidsForPositions = new HashMap<>();
-        vidsForPositions.put(0, "593967be9e45105fa1b5939a");
-        vidsForPositions.put(1, "577cc23d50954952cc56bc47");
-        vidsForPositions.put(2, "5939698f85eb427b86aa0a14");
-        vidsForPositions.put(3, "593967be9e45105fa1b5939a");
-        vidsForPositions.put(4, "577cc23d50954952cc56bc47");
-        vidsForPositions.put(5, "5939698f85eb427b86aa0a14");
-        vidsForPositions.put(6, "593967be9e45105fa1b5939a");
-        vidsForPositions.put(7, "577cc23d50954952cc56bc47");
-        vidsForPositions.put(8, "5939698f85eb427b86aa0a14");
-        vidsForPositions.put(9, "593967be9e45105fa1b5939a");
-        return vidsForPositions;
+    private String[] getVideos() {
+        String videos[] = {
+                "593967be9e45105fa1b5939a",
+                "577cc23d50954952cc56bc47",
+                "5939698f85eb427b86aa0a14",
+                "593967be9e45105fa1b5939a",
+                "577cc23d50954952cc56bc47",
+                "5939698f85eb427b86aa0a14",
+                "593967be9e45105fa1b5939a",
+                "577cc23d50954952cc56bc47",
+                "5939698f85eb427b86aa0a14",
+                "593967be9e45105fa1b5939a"};
+        return videos;
     }
 
     @Override
