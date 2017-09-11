@@ -1,19 +1,26 @@
 package com.aol.mobile.sdk.testapp;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private PlayerAdapter playerAdapter;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_videos);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -28,6 +36,32 @@ public class MainActivity extends AppCompatActivity {
 
         playerAdapter = new PlayerAdapter();
         recyclerView.setAdapter(playerAdapter);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            private boolean isLoading = false;
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy == 0) return;
+                int childCount = linearLayoutManager.getChildCount();
+                int itemCount = linearLayoutManager.getItemCount();
+                int findFirstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
+
+                if (!isLoading && (childCount + findFirstVisibleItemPosition) >= itemCount) {
+                    isLoading = true;
+                    progressBar.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            isLoading = false;
+                            progressBar.setVisibility(View.GONE);
+                            playerAdapter.add(getVideos());
+                        }
+                    }, 500);
+                }
+            }
+        });
 
         new OneSDKBuilder(getApplicationContext())
                 .create(new OneSDKBuilder.Callback() {
@@ -43,18 +77,20 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private String[] getVideos() {
-        String videos[] = {
-                "593967be9e45105fa1b5939a",
-                "577cc23d50954952cc56bc47",
-                "5939698f85eb427b86aa0a14",
-                "593967be9e45105fa1b5939a",
-                "577cc23d50954952cc56bc47",
-                "5939698f85eb427b86aa0a14",
-                "593967be9e45105fa1b5939a",
-                "577cc23d50954952cc56bc47",
-                "5939698f85eb427b86aa0a14",
-                "593967be9e45105fa1b5939a"};
+    private List<String> getVideos() {
+        List<String> videos = new ArrayList<>();
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
+        videos.add("577cc23d50954952cc56bc47");
         return videos;
     }
 
@@ -75,4 +111,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         ((PlayerAdapter) recyclerView.getAdapter()).bindersOnDestroy();
     }
+
+
 }

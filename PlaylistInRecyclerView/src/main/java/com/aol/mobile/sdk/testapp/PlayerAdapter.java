@@ -12,9 +12,13 @@ import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHolder> {
-    private Binder[] binders = new Binder[0];
-    private String[] videos;
+    private List<Binder> binders = new ArrayList<>();
+    private List<String> videos;
     private OneSDK oneSDK;
 
     @Override
@@ -31,11 +35,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
             return;
         }
 
-        if (binders[position] == null) {
+        if (binders.get(position) == null) {
             final Binder binder = new Binder();
             oneSDK.createBuilder()
                     .setAutoplay(false)
-                    .buildForVideo(videos[position], new Player.Callback() {
+                    .buildForVideo(videos.get(position), new Player.Callback() {
                         @Override
                         public void success(@NonNull Player player) {
                             binder.setPlayer(player);
@@ -46,16 +50,19 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
                         public void error(@NonNull Exception e) {
                         }
                     });
-            binders[position] = binder;
+            binders.set(position, binder);
         }
     }
 
     @Override
     public void onViewDetachedFromWindow(PlayerHolder holder) {
         super.onViewDetachedFromWindow(holder);
-        Binder binder = binders[holder.getAdapterPosition()];
-        if (binder != null && binder.getPlayer() != null) {
-            binder.getPlayer().pause();
+        if (holder.getAdapterPosition() == RecyclerView.NO_POSITION) return;
+        Binder binder = binders.get(holder.getAdapterPosition());
+        if (binder != null) {
+            if (binder.getPlayer() != null) {
+                binder.getPlayer().pause();
+            }
             binder.setPlayerView(null);
         }
     }
@@ -63,22 +70,28 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     @Override
     public void onViewAttachedToWindow(PlayerHolder holder) {
         super.onViewAttachedToWindow(holder);
-        Binder binder = binders[holder.getAdapterPosition()];
-        if (binder != null && binder.getPlayer() != null) {
+        Binder binder = binders.get(holder.getAdapterPosition());
+        if (binder != null) {
             binder.setPlayerView(holder.playerView);
         }
     }
 
     @Override
     public int getItemCount() {
-        return videos != null ? videos.length : 0;
+        return videos != null ? videos.size() : 0;
     }
 
-    public void setData(@NonNull final OneSDK oneSDK, @NonNull String[] videos) {
+    public void setData(@NonNull final OneSDK oneSDK, @NonNull List<String> videos) {
         this.oneSDK = oneSDK;
         this.videos = videos;
-        binders = new Binder[videos.length];
+        binders.addAll(Collections.<Binder>nCopies(videos.size(), null));
         notifyDataSetChanged();
+    }
+
+    public void add(@NonNull List<String> videos) {
+        this.videos.addAll(videos);
+        binders.addAll(Collections.<Binder>nCopies(videos.size(), null));
+        notifyItemRangeChanged(this.videos.size() - videos.size(), this.videos.size());
     }
 
     class PlayerHolder extends RecyclerView.ViewHolder {
