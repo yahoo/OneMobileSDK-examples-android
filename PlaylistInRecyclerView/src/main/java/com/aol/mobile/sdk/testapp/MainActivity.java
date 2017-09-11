@@ -111,6 +111,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         ((PlayerAdapter) recyclerView.getAdapter()).bindersOnDestroy();
     }
-
-
 }

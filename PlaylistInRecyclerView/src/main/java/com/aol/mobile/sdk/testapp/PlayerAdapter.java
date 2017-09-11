@@ -71,7 +71,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     public void onViewAttachedToWindow(PlayerHolder holder) {
         super.onViewAttachedToWindow(holder);
         Binder binder = binders.get(holder.getAdapterPosition());
-        if (binder != null) {
+        if (binder != null && binder.getPlayer() != null) {
             binder.setPlayerView(holder.playerView);
         }
     }
@@ -113,7 +113,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     public void bindersOnResume() {
         for (Binder binder : binders) {
             if (binder != null) {
-                binder.onPause();
+                binder.onResume();
             }
         }
     }
@@ -129,7 +129,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     public void bindersOnDestroy() {
         for (Binder binder : binders) {
             if (binder != null) {
-                binder.onPause();
+                binder.onDestroy();
             }
         }
     }
