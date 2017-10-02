@@ -17,10 +17,10 @@ allprojects {
 }
 
 ext {
-    COMPILE_SDK_VERSION = 25
-    BUILD_TOOLS_VERSION = "25.0.3"
+    COMPILE_SDK_VERSION = 26
+    BUILD_TOOLS_VERSION = "26.0.1"
     MIN_SDK_VERSION = 16
-    TARGET_SDK_VERSION = 25
+    TARGET_SDK_VERSION = 26
     ONE_MOBILE_SDK = "com.aol.one.publishers.android:sdk:2.11"
     APP_COMPAT = 'com.android.support:appcompat-v7:25.3.1'
     RESOURCES = project(':Resources')
