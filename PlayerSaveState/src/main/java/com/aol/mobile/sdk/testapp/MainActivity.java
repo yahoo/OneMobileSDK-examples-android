@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        playerView = (PlayerView) findViewById(R.id.player_view);
+        playerView = findViewById(R.id.player_view);
 
         FragmentManager fm = getFragmentManager();
         storageFragment = (StorageFragment) fm.findFragmentByTag("storageFragment");

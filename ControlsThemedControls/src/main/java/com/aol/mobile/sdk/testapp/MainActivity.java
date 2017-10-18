@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
                     public void success(@NonNull Player player) {
                         playerFragment.getBinder().setPlayer(player);
 
-                        PlayerControlsView contentControls = (PlayerControlsView) playerFragment.getPlayerView().getContentControls();
+                        PlayerControlsView contentControls = playerFragment.getPlayerView().getContentControls();
                         contentControls.setMainColor(getResources().getColor(R.color.colorPrimary));
                         contentControls.setAccentColor(getResources().getColor(R.color.colorAccent));
 
-                        AdControlsView adControls = (AdControlsView) playerFragment.getPlayerView().getAdControls();
+                        AdControlsView adControls = playerFragment.getPlayerView().getAdControls();
                         adControls.setMainColor(getResources().getColor(R.color.colorPrimary));
                         adControls.setAccentColor(getResources().getColor(R.color.colorAccent));
                     }
