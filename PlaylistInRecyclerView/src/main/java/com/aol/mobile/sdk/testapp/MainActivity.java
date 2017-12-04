@@ -18,17 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private PlayerAdapter playerAdapter;
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_videos);
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        progressBar = findViewById(R.id.progressbar);
+        recyclerView = findViewById(R.id.recyclerview_videos);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(playerAdapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
             private boolean isLoading = false;
 
             @Override
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             isLoading = false;
                             progressBar.setVisibility(View.GONE);
-                            playerAdapter.add(getVideos());
+                            playerAdapter.add(getVideoIds());
                         }
                     }, 500);
                 }
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 .create(new OneSDKBuilder.Callback() {
                     @Override
                     public void onSuccess(@NonNull OneSDK oneSDK) {
-                        playerAdapter.setData(oneSDK, getVideos());
+                        playerAdapter.setData(oneSDK, getVideoIds());
                     }
 
                     @Override
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private List<String> getVideos() {
+    private List<String> getVideoIds() {
         List<String> videos = new ArrayList<>();
         videos.add("593967be9e45105fa1b5939a");
         videos.add("577cc23d50954952cc56bc47");
@@ -91,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         videos.add("577cc23d50954952cc56bc47");
         videos.add("593967be9e45105fa1b5939a");
         videos.add("577cc23d50954952cc56bc47");
+        videos.add("593967be9e45105fa1b5939a");
         return videos;
     }
 

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     public void success(@NonNull Player player) {
                         playerFragment.getBinder().setPlayer(player);
 
-                        PlayerControlsView playerControlsView = (PlayerControlsView) playerFragment
+                        PlayerControlsView playerControlsView = playerFragment
                                 .getPlayerView().getContentControls();
 
                         addSideBarButtons(playerControlsView.getSidePanel(), playerFragment.getBinder().getPlayer());

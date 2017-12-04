@@ -7,17 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.aol.mobile.sdk.player.EmptyPlaylistException;
+import com.aol.mobile.sdk.player.InvalidRendererException;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
-import com.aol.mobile.sdk.player.PlayerBuilder;
 import com.aol.mobile.sdk.player.VideoProvider;
 import com.aol.mobile.sdk.player.VideoProviderResponse;
-import com.aol.mobile.sdk.player.model.PlayerModel;
-import com.aol.mobile.sdk.player.model.PlaylistItem;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String[] VIDEO_LIST = new String[]{"593967be9e45105fa1b5939a", "577cc23d50954952cc56bc47", "5939698f85eb427b86aa0a14"};
@@ -29,22 +25,6 @@ public class MainActivity extends AppCompatActivity {
      */
 
     private final String[] titleArray = new String[]{"Overridden title 1", "Overridden title 2", "Overridden title 3"};
-
-    private PlayerBuilder.PlayerModelTransformer playerModelTransformer = new PlayerBuilder.PlayerModelTransformer() {
-        @NonNull
-        @Override
-        public PlayerModel modify(@NonNull PlayerModel playerModel) {
-            ArrayList<PlaylistItem> playlistItems = new ArrayList<>();
-
-            for (int i = 0; i < playerModel.videoModels.size(); i++) {
-                if (playerModel.videoModels.get(i).videoModel != null) {
-                    playlistItems.add(new PlaylistItem(playerModel.videoModels.get(i).videoModel.withTitle(titleArray[i])));
-                }
-            }
-
-            return playerModel.withPlaylistItems(playlistItems);
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +55,24 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void success(@NonNull VideoProviderResponse videoProviderResponse) {
                         try {
-                            Player player = oneSDK.createBuilder()
-                                    .transformWith(playerModelTransformer)
-                                    .buildFrom(videoProviderResponse);
+                            VideoProviderResponse.PlaylistItem[] modifiedPlaylistItems = new VideoProviderResponse.PlaylistItem[videoProviderResponse.playlistItems.length];
+                            for (int i = 0; i < modifiedPlaylistItems.length; i++) {
+                                if (videoProviderResponse.playlistItems[i].video != null) {
+                                    modifiedPlaylistItems[i] = new VideoProviderResponse.PlaylistItem(
+                                            videoProviderResponse.playlistItems[i].video.withTitle(titleArray[i]));
+                                } else {
+                                    modifiedPlaylistItems[i] = videoProviderResponse.playlistItems[i];
+                                }
+                            }
+                            videoProviderResponse = videoProviderResponse.withPlaylistItems(modifiedPlaylistItems);
 
+                            Player player = oneSDK.createBuilder()
+                                    .buildFrom(videoProviderResponse);
                             playerFragment.getBinder().setPlayer(player);
                         } catch (EmptyPlaylistException e) {
                             error(e);
+                        } catch (InvalidRendererException e) {
+                            e.printStackTrace();
                         }
                     }
 

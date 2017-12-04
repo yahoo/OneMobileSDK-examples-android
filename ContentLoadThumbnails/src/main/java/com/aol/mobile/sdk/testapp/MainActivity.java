@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setImageLoader(PlayerFragment playerFragment) {
-        PlayerControlsView playerControlsView = (PlayerControlsView) playerFragment.getPlayerView().getContentControls();
+        PlayerControlsView playerControlsView = playerFragment.getPlayerView().getContentControls();
         playerControlsView.setImageLoader(new ImageLoader() {
             @Override
             public void load(@Nullable String url, @NonNull ImageView imageView) {

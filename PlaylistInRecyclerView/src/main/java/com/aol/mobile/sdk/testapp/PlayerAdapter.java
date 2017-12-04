@@ -18,7 +18,7 @@ import java.util.List;
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHolder> {
     private List<Binder> binders = new ArrayList<>();
-    private List<String> videos;
+    private List<String> videoIds;
     private OneSDK oneSDK;
 
     @Override
@@ -31,6 +31,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     @Override
     public void onBindViewHolder(final PlayerHolder holder, int position) {
         holder.textViewPosition.setText(String.valueOf(position));
+
         if (oneSDK == null) {
             return;
         }
@@ -39,7 +40,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
             final Binder binder = new Binder();
             oneSDK.createBuilder()
                     .setAutoplay(false)
-                    .buildForVideo(videos.get(position), new Player.Callback() {
+                    .buildForVideo(videoIds.get(position), new Player.Callback() {
                         @Override
                         public void success(@NonNull Player player) {
                             binder.setPlayer(player);
@@ -78,20 +79,20 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
 
     @Override
     public int getItemCount() {
-        return videos != null ? videos.size() : 0;
+        return videoIds != null ? videoIds.size() : 0;
     }
 
-    public void setData(@NonNull final OneSDK oneSDK, @NonNull List<String> videos) {
+    public void setData(@NonNull final OneSDK oneSDK, @NonNull List<String> videoIds) {
         this.oneSDK = oneSDK;
-        this.videos = videos;
-        binders.addAll(Collections.<Binder>nCopies(videos.size(), null));
+        this.videoIds = videoIds;
+        binders.addAll(Collections.<Binder>nCopies(videoIds.size(), null));
         notifyDataSetChanged();
     }
 
-    public void add(@NonNull List<String> videos) {
-        this.videos.addAll(videos);
-        binders.addAll(Collections.<Binder>nCopies(videos.size(), null));
-        notifyItemRangeChanged(this.videos.size() - videos.size(), this.videos.size());
+    public void add(@NonNull List<String> videoIds) {
+        this.videoIds.addAll(videoIds);
+        binders.addAll(Collections.<Binder>nCopies(videoIds.size(), null));
+        notifyItemRangeChanged(this.videoIds.size() - videoIds.size(), this.videoIds.size());
     }
 
     class PlayerHolder extends RecyclerView.ViewHolder {
@@ -100,8 +101,8 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
 
         PlayerHolder(final View itemView) {
             super(itemView);
-            textViewPosition = (TextView) itemView.findViewById(R.id.item_tv_position);
-            playerView = (PlayerView) itemView.findViewById(R.id.item_playerview);
+            textViewPosition = itemView.findViewById(R.id.item_tv_position);
+            playerView = itemView.findViewById(R.id.item_playerview);
         }
     }
 
