@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Resources</string>
+    <string name="app_name">OMSDK Tutorials</string>
+
+    <string name="tutorial_1">Tutorial 1</string>
+    <string name="play_video">Playing video</string>
+    <string name="play_array">Playing array of videos</string>
+    <string name="play_playlist">Playing playlist</string>
+    <string name="set_tint_color">Setting default controls’ tint color</string>
+    <string name="autoplay_off">Playing with AutoPlay on/off</string>
+    <string name="play_muted">Playing Muted</string>
+
+    <string name="tutorial_2">Tutorial 2</string>
+    <string name="tutorial_3">Tutorial 3</string>
+    <string name="tutorial_4">Tutorial 4</string>
+    <string name="tutorial_5">Tutorial 5</string>
+
 </resources>

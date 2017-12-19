@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aol.mobile.sdk.testapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.one.TutorialOneActivity"
+            android:label="@string/tutorial_1" />
+        <activity
+            android:name=".tutorials.one.PlayVideoActivity"
+            android:label="@string/play_video" />
+        <activity
+            android:name=".tutorials.one.PlayArrayActivity"
+            android:label="@string/play_array" />
+        <activity
+            android:name=".tutorials.one.PlayPlaylistActivity"
+            android:label="@string/play_playlist" />
+        <activity
+            android:name=".tutorials.one.SetTintColorActivity"
+            android:label="@string/set_tint_color" />
+        <activity
+            android:name=".tutorials.one.AutoplayOffActivity"
+            android:label="@string/autoplay_off" />
+        <activity
+            android:name=".tutorials.one.PlayMutedActivity"
+            android:label="@string/play_muted" />
+
+        <activity
+            android:name=".tutorials.two.TutorialTwoActivity"
+            android:label="@string/tutorial_2" />
+    </application>
+</manifest>
