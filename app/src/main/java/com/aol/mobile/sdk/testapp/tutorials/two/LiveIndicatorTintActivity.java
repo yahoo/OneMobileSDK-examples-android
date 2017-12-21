@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.testapp.tutorials.one;
+package com.aol.mobile.sdk.testapp.tutorials.two;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.aol.mobile.sdk.controls.view.AdControlsView;
 import com.aol.mobile.sdk.controls.view.PlayerControlsView;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
@@ -16,7 +15,7 @@ import com.aol.mobile.sdk.player.view.PlayerFragment;
 import com.aol.mobile.sdk.testapp.Data;
 import com.aol.mobile.sdk.testapp.R;
 
-public class SetTintColorActivity extends AppCompatActivity {
+public class LiveIndicatorTintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +40,11 @@ public class SetTintColorActivity extends AppCompatActivity {
 
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
-                .buildForVideo(Data.VIDEO_ID, new Player.Callback() {
+                .buildForVideo(Data.LIVE_VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-
                         PlayerControlsView contentControls = playerFragment.getPlayerView().getContentControls();
-                        contentControls.setMainColor(getResources().getColor(R.color.colorPrimary));
-                        contentControls.setAccentColor(getResources().getColor(R.color.colorAccent));
+                        contentControls.setLiveDotColor(getResources().getColor(R.color.colorPrimary));
 
                         playerFragment.getBinder().setPlayer(player);
                     }

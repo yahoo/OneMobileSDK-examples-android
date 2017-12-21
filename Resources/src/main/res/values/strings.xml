@@ -1,17 +1,25 @@
 <resources>
     <string name="app_name">OMSDK Tutorials</string>
 
-    <string name="tutorial_1">Tutorial 1</string>
+    <string name="tutorial_1">Tutorial 1 – Playing Videos</string>
     <string name="play_video">Playing video</string>
     <string name="play_array">Playing array of videos</string>
     <string name="play_playlist">Playing playlist</string>
     <string name="set_tint_color">Setting default controls’ tint color</string>
-    <string name="autoplay_off">Playing with AutoPlay on/off</string>
-    <string name="play_muted">Playing Muted</string>
+    <string name="autoplay_off">Playing with autoplay on/off</string>
+    <string name="play_muted">Playing muted</string>
 
-    <string name="tutorial_2">Tutorial 2</string>
-    <string name="tutorial_3">Tutorial 3</string>
-    <string name="tutorial_4">Tutorial 4</string>
-    <string name="tutorial_5">Tutorial 5</string>
+    <string name="tutorial_2">Tutorial 2 – Customizing UX</string>
+    <string name="hidden_buttons_controls">Hiding controls buttons</string>
+    <string name="cc_sap_settings">CC/SAP Settings</string>
+    <string name="sidebar_buttons">Sidebar buttons</string>
+    <string name="sidebar_volume">Sidebar volume control buttons</string>
+    <string name="sidebar_fullscreen">Sidebar fullscreen button</string>
+    <string name="live_indicator_tint">LIVE indicator’s tint color</string>
+    <string name="add">Add</string>
+    <string name="fav">Fav</string>
+    <string name="un_fav">UnFav</string>
+    <string name="later">Later</string>
+    <string name="share">Share</string>
 
 </resources>

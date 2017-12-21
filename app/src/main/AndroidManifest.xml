@@ -10,7 +10,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:label">
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,28 +22,61 @@
 
         <activity
             android:name=".tutorials.one.TutorialOneActivity"
-            android:label="@string/tutorial_1" />
+            android:label="@string/tutorial_1"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.PlayVideoActivity"
-            android:label="@string/play_video" />
+            android:label="@string/play_video"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.PlayArrayActivity"
-            android:label="@string/play_array" />
+            android:label="@string/play_array"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.PlayPlaylistActivity"
-            android:label="@string/play_playlist" />
+            android:label="@string/play_playlist"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.SetTintColorActivity"
-            android:label="@string/set_tint_color" />
+            android:label="@string/set_tint_color"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.AutoplayOffActivity"
-            android:label="@string/autoplay_off" />
+            android:label="@string/autoplay_off"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".tutorials.one.PlayMutedActivity"
-            android:label="@string/play_muted" />
+            android:label="@string/play_muted"
+            android:screenOrientation="portrait" />
+
 
         <activity
             android:name=".tutorials.two.TutorialTwoActivity"
-            android:label="@string/tutorial_2" />
+            android:label="@string/tutorial_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.HiddenButtonsControlsActivity"
+            android:label="@string/hidden_buttons_controls"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.ModifiedCcSapActivity"
+            android:label="@string/cc_sap_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.SidebarButtonsActivity"
+            android:label="@string/sidebar_buttons"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.SidebarVolumeActivity"
+            android:label="@string/sidebar_volume"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.SidebarFullscreenActivity"
+            android:label="@string/sidebar_fullscreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.two.LiveIndicatorTintActivity"
+            android:label="@string/live_indicator_tint"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>

@@ -8,7 +8,39 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btn_hidden_buttons_controls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="todo" />
+        android:text="@string/hidden_buttons_controls" />
+
+    <Button
+        android:id="@+id/btn_cc_sap_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cc_sap_settings" />
+
+    <Button
+        android:id="@+id/btn_sidebar_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sidebar_buttons" />
+
+    <Button
+        android:id="@+id/btn_sidebar_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sidebar_volume" />
+
+    <Button
+        android:id="@+id/btn_sidebar_fullscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sidebar_fullscreen" />
+
+    <Button
+        android:id="@+id/btn_live_indicator_tint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/live_indicator_tint" />
+
 </LinearLayout>
