@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.aol.mobile.sdk.testapp.tutorials.one.TutorialOneActivity;
+import com.aol.mobile.sdk.testapp.tutorials.three.TutorialThreeActivity;
 import com.aol.mobile.sdk.testapp.tutorials.two.TutorialTwoActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,21 +21,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnTutorialOne.setOnClickListener(this);
         Button btnTutorialTwo = findViewById(R.id.btn_tutorial_two);
         btnTutorialTwo.setOnClickListener(this);
+        Button btnTutorialThree = findViewById(R.id.btn_tutorial_three);
+        btnTutorialThree.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         Class<? extends AppCompatActivity> targetActivity;
-
         switch (view.getId()) {
             case R.id.btn_tutorial_one:
                 targetActivity = TutorialOneActivity.class;
                 break;
-
             case R.id.btn_tutorial_two:
                 targetActivity = TutorialTwoActivity.class;
                 break;
-
+            case R.id.btn_tutorial_three:
+                targetActivity = TutorialThreeActivity.class;
+                break;
             default:
                 return;
         }

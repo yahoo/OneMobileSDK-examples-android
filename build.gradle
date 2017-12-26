@@ -23,8 +23,9 @@ ext {
     BUILD_TOOLS_VERSION = "27.0.1"
     MIN_SDK_VERSION = 16
     TARGET_SDK_VERSION = 27
-    ONE_MOBILE_SDK = "com.aol.one.publishers.android:sdk:2.17"
+    ONE_MOBILE_SDK = 'com.aol.one.publishers.android:sdk:2.17'
     APP_COMPAT = 'com.android.support:appcompat-v7:27.0.1'
+    PICASSO = 'com.squareup.picasso:picasso:2.5.2'
     RESOURCES = project(':Resources')
 }
 

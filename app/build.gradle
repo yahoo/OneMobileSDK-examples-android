@@ -14,7 +14,8 @@ android {
 }
 
 dependencies {
-    compile ONE_MOBILE_SDK
-    compile APP_COMPAT
-    compile RESOURCES
+    implementation ONE_MOBILE_SDK
+    implementation APP_COMPAT
+    implementation RESOURCES
+    implementation PICASSO
 }

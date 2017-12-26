@@ -167,19 +167,31 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 
 ### Tutorial 1 – Playing Videos <a name="t1"></a>
 
+[Play video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
+
+[Play list of videos](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayArrayActivity.java)
+
+[Play playlist](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayPlaylistActivity.java)
+
 This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
 
 ##### Setting default player controls’ tint color <a name="t11"></a>
 
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
+
 The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the PlayerView along with the PlayerControlsView inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
 
 ##### Playing with AutoPlay on/off <a name="t12"></a>
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/AutoplayOffActivity.java)
 
 By default, the SDK plays videos with AutoPlay mode on.  This means, that as soon as you construct a player, the first video queues to play immediately (first, calling for an ad, of course).  In this case, no further user action is required.  As soon as the ad or the video is ready to play, it will.  To override this behavior and turn off AutoPlay, look for the alternate way to construct the Player in this sample.
 
 If AutoPlay mode is off, the user will have to tap the play button to start the playback process. Alternatively, you can programmatically do this by controlling the Player object.
 
 ##### Playing Muted <a name="t13"></a>
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayMutedActivity.java)
 
 You can easily control the mute state of the `Player` object. In this sample, you’ll find a code block that shows you how to set the mute state of the `Player` object.
 ```java
@@ -197,6 +209,8 @@ This tutorial sample shows you how to further modify the default controls UX.
 
 ##### Hiding Various Controls buttons <a name="t21"></a>
 
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/HiddenButtonsControlsActivity.java)
+
 You can change the look of the default controls UX on a player-by-player basis to suit your app design needs. The elements that can be hidden include:
 * ± 10 second skip buttons
 * Previous and Next buttons
@@ -212,13 +226,23 @@ If you hide the title, and bottom element buttons such as CC/SAP, PiP, and Chrom
 
 ##### Closed Captioning / SAP Settings button <a name="t22"></a>
 
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/ModifiedCcSapActivity.java)
+
 This new feature of the OMSDK is generally dependent on having this information in the HLS stream. There are ways to filter out what CC languages and SAP audio tracks are available. Also, there’s a way to control what the choices are for a given video. One reason to control this may be to implement a “sticky” closed captioning setting. By default, turning CC on only applies the the current playing video. A next or previous video would not have CC on by default. If you wanted your app to support a sticky setting for this, you would do it yourself. This part of this tutorial will show you how to accomplish this.
 
 ##### Using the 4 Custom Sidebar buttons <a name="t23"></a>
 
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/SidebarButtonsActivity.java)
+
+[Sidbar volume controls](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/SidebarVolumeActivity.java)
+
+[Sidbar fullscreen button](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/SidebarFullscreenActivity.java)
+
 Use this sample to see how to add custom code and behaviors to one of the 4 sidebar buttons. The Sidebar buttons are part of the default player controls UX and are there for you to add up to 4 different overlays/behaviors to your player. You provide the button graphics – icons for normal, selected, and highlighted modes, and you provide a handler to be called in the case of a button tap. The SDK will handle showing/hiding the buttons along with the other player controls.
 
 ##### Setting the LIVE indicator’s tint color <a name="t24"></a>
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/LiveIndicatorTintActivity.java)
 
 The LIVE indicator only appears during a LIVE streaming video playback. This will not appear for a video on demand video. Part of the LIVE indicator is the ability to colorize the • that appears next to the LIVE indicator. In general, you may want to use a standard pure-red color. However, it’s possible that you want to use your app’s brand color or while here instead. You can use black or any dark-gray color, but that is ill advised, because of the general nature of video to have lots of blacks in it. The sample code in this example shows how to set this.
 
@@ -228,20 +252,23 @@ This tutorial sample shows you how to observe just about everything you can obse
 
 ##### Current Playback State and Position <a name="t31"></a>
 
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/CurrentStateActivity.java)
+
 Determining the current state of the `Player` is a key need for apps … most app-level video playback logic starts here. In addition to the play/pause state, also includes the current position. Once you can query for these property values, you can also programmatically modify them.
 
-###### Pausing or Resume Playback and Seeking ######
-```java
-player.play();
-player.pause();
-player.seekTo(0.5);
-```
+##### Pausing or Resume Playback and Seeking ######
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/PauseSeekPlayActivity.java)
 
 ##### Looping Playback <a name="t32"></a>
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/LoopPlaybackActivity.java)
 
 If your app has some need to loop a `Player` (one video or many), such as running a kiosk-style interface, for example. This is an easy operation to accomplish with the OMSDK. Look in this example, to see how to determine when playback finishes, and how to reset the video index back to the first video and start it over.
 
 ##### LIVE, VOD, or 360°? <a name="t33"></a>
+
+[link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/InspectVideoTypeActivity.java)
 
 You may need to inspect some more metadata on the video, such as what type of video this is – LIVE, video on demand, or 360°. This tutorial sample shows how to inspect this. You may need to make certain app design or UX decisions accordingly, based on the type of video that’s currently playing.
 

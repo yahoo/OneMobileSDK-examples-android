@@ -18,11 +18,10 @@ import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
+import com.aol.mobile.sdk.testapp.Data;
 import com.aol.mobile.sdk.testapp.R;
 
 public class SidebarFullscreenActivity extends AppCompatActivity {
-    public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
-
     private boolean isFullscreenActive;
     private PlayerFragment playerFragment;
     private View fragmentParent;
@@ -54,8 +53,7 @@ public class SidebarFullscreenActivity extends AppCompatActivity {
 
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
-                .setAutoplay(true)
-                .buildForVideo(VIDEO_ID, new Player.Callback() {
+                .buildForVideo(Data.VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
                         playerFragment.getBinder().setPlayer(player);

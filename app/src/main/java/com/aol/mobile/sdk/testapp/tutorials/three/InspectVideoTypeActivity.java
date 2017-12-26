@@ -1,8 +1,9 @@
-package com.aol.mobile.sdk.testapp;
+package com.aol.mobile.sdk.testapp.tutorials.three;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,30 +15,29 @@ import com.aol.mobile.sdk.player.PlayerStateObserver;
 import com.aol.mobile.sdk.player.model.properties.Properties;
 import com.aol.mobile.sdk.player.model.properties.VideoProperties;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
+import com.aol.mobile.sdk.testapp.Data;
+import com.aol.mobile.sdk.testapp.R;
 
-public class MainActivity extends AppCompatActivity {
-    public static final String VIDEO_ID = "577cc23d50954952cc56bc47";
-
+public class InspectVideoTypeActivity extends AppCompatActivity {
     private PlayerStateObserver playerStateObserver;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_player_fragment);
+
+        FragmentManager fm = getFragmentManager();
+        final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
 
         playerStateObserver = new PlayerStateObserver() {
             @Override
             public void onPlayerStateChanged(@NonNull Properties properties) {
                 VideoProperties videoProperties = properties.playlistItem.video;
-                if (videoProperties != null && videoProperties.time != null) {
-                    long time = videoProperties.time.current;
-                    Log.d("PlayerObserver", "Current video time in ms: " + time);
+                if (videoProperties != null) {
+                    Log.d(getString(R.string.app_name), "Video type: " + videoProperties.type);
                 }
             }
         };
-
-        FragmentManager fm = getFragmentManager();
-        final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
 
         new OneSDKBuilder(getApplicationContext())
                 .create(new OneSDKBuilder.Callback() {
@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
-                .setAutoplay(true)
-                .buildForVideo(VIDEO_ID, new Player.Callback() {
+                .buildForVideo(Data.VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
                         player.addPlayerStateObserver(playerStateObserver);
