@@ -78,5 +78,28 @@
             android:name=".tutorials.two.LiveIndicatorTintActivity"
             android:label="@string/live_indicator_tint"
             android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".tutorials.three.TutorialThreeActivity"
+            android:label="@string/tutorial_3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.three.CurrentStateActivity"
+            android:label="@string/current_state"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.three.PauseSeekPlayActivity"
+            android:label="@string/pause_seek_play"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.three.LoopPlaybackActivity"
+            android:label="@string/loop_playback"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.three.InspectVideoTypeActivity"
+            android:label="@string/inspect_video_type"
+            android:screenOrientation="portrait" />
     </application>
+
 </manifest>

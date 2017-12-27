@@ -6,7 +6,7 @@
     <string name="play_array">Playing array of videos</string>
     <string name="play_playlist">Playing playlist</string>
     <string name="set_tint_color">Setting default controls’ tint color</string>
-    <string name="autoplay_off">Playing with autoplay on/off</string>
+    <string name="autoplay_off">Playing with autoplay off</string>
     <string name="play_muted">Playing muted</string>
 
     <string name="tutorial_2">Tutorial 2 – Customizing UX</string>
@@ -21,5 +21,12 @@
     <string name="un_fav">UnFav</string>
     <string name="later">Later</string>
     <string name="share">Share</string>
+
+
+    <string name="tutorial_3">Tutorial 3 – Observing Player</string>
+    <string name="current_state">Current state and position</string>
+    <string name="pause_seek_play">Pause, seek and play</string>
+    <string name="loop_playback">Looping playback</string>
+    <string name="inspect_video_type">Inspect video type</string>
 
 </resources>
