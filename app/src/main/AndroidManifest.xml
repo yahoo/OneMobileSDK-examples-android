@@ -118,6 +118,22 @@
             android:name=".tutorials.four.RestrictedVideoActivity"
             android:label="@string/restricted_video"
             android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".tutorials.five.TutorialFiveActivity"
+            android:label="@string/tutorial_5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.five.ChromecastSupportActivity"
+            android:label="@string/chromecast_support"
+            android:screenOrientation="portrait" />
+
+
+        <meta-data
+            android:name="com.aol.mobile.sdk.chromecast.ReceiverApplicationId"
+            android:value="F53593E4" />
+
     </application>
 
 </manifest>

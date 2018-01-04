@@ -18,4 +18,5 @@ dependencies {
     implementation APP_COMPAT
     implementation RESOURCES
     implementation PICASSO
+    implementation "com.aol.one.publishers.android:chromecast:1.7"
 }

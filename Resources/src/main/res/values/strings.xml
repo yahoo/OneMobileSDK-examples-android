@@ -22,7 +22,6 @@
     <string name="later">Later</string>
     <string name="share">Share</string>
 
-
     <string name="tutorial_3">Tutorial 3 – Observing Player</string>
     <string name="current_state">Current state and position</string>
     <string name="pause_seek_play">Pause, seek and play</string>
@@ -34,4 +33,6 @@
     <string name="player_initialization_errors">Player Initialization Errors</string>
     <string name="restricted_video">Restricted Video</string>
 
+    <string name="tutorial_5">Tutorial 5 – Support for TV Consoles</string>
+    <string name="chromecast_support">Chromecast support</string>
 </resources>
