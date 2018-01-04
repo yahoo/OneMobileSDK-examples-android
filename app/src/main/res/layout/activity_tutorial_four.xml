@@ -8,27 +8,21 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_tutorial_one"
+        android:id="@+id/btn_sdk_initialization_errors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tutorial_1" />
+        android:text="@string/sdk_initialization_errors" />
 
     <Button
-        android:id="@+id/btn_tutorial_two"
+        android:id="@+id/btn_player_initialization_errors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tutorial_2" />
+        android:text="@string/player_initialization_errors" />
 
     <Button
-        android:id="@+id/btn_tutorial_three"
+        android:id="@+id/btn_restricted_videos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tutorial_3" />
-
-    <Button
-        android:id="@+id/btn_tutorial_four"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tutorial_4" />
+        android:text="@string/restricted_video" />
 
 </LinearLayout>

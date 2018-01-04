@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.aol.mobile.sdk.testapp.tutorials.four.TutorialFourActivity;
 import com.aol.mobile.sdk.testapp.tutorials.one.TutorialOneActivity;
 import com.aol.mobile.sdk.testapp.tutorials.three.TutorialThreeActivity;
 import com.aol.mobile.sdk.testapp.tutorials.two.TutorialTwoActivity;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnTutorialTwo.setOnClickListener(this);
         Button btnTutorialThree = findViewById(R.id.btn_tutorial_three);
         btnTutorialThree.setOnClickListener(this);
+        Button btnTutorialFour = findViewById(R.id.btn_tutorial_four);
+        btnTutorialFour.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_tutorial_three:
                 targetActivity = TutorialThreeActivity.class;
+                break;
+            case R.id.btn_tutorial_four:
+                targetActivity = TutorialFourActivity.class;
                 break;
             default:
                 return;
