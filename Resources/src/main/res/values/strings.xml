@@ -29,4 +29,9 @@
     <string name="loop_playback">Looping playback</string>
     <string name="inspect_video_type">Inspect video type</string>
 
+    <string name="tutorial_4">Tutorial 4 – Error Handling</string>
+    <string name="sdk_initialization_errors">SDK Initialization Errors</string>
+    <string name="player_initialization_errors">Player Initialization Errors</string>
+    <string name="restricted_video">Restricted Video</string>
+
 </resources>
