@@ -212,7 +212,7 @@ The built-in tint color of the default video player controls UX is pink/magenta.
 
 _Tutorial Sample:_
 
-[Turning Off AutoPlay](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/AutoplayOffActivity.java)
+   [Turning Off AutoPlay](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/AutoplayOffActivity.java)
 
 By default, the SDK plays videos with AutoPlay mode on.  This means, that as soon as you construct a player, the first video queues to play immediately (first, calling for an ad, of course).  In this case, no further user action is required.  As soon as the ad or the video is ready to play, it will.  To override this behavior and turn off AutoPlay, look for the alternate way to construct the Player in this sample.
 
