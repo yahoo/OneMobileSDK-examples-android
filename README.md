@@ -193,7 +193,9 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 _Tutorial Samples:_
 
 > [Play Video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
+>
 > [Play Array of Videos](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayArrayActivity.java)
+>
 > [Play Video Playlist](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayPlaylistActivity.java)
 
 This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
