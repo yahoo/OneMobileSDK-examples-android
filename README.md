@@ -1,4 +1,5 @@
-# O2 Mobile SDK Tutorial – for Android <a name="head"></a>
+<a name="head"></a>
+# O2 Mobile SDK Tutorial - for Android
 
 Welcome to the O2 Mobile SDK (OMSDK or SDK). The purpose of this document is to provide you with everything you need to know to get started with and use the O2 Mobile SDK. The audience for this document is an experienced Android Developer with in-depth knowledge of using Android Studio, the Java Programming Language, Android OS API programming, and Gradle build system.
 
@@ -7,7 +8,8 @@ This document will describe basic concepts and then will link you to sample proj
 As always, we highly appreciate, welcome, and value all feedback on this documentation or the OMSDK in any way, shape, or form. If you have any suggestions for corrections, additions, or any further clarity, please don’t hesitate to email the [Video Support Team](mailto:video.support@oath.com).
 
 ## Table of Contents
-[O2 Mobile SDK Tutorial – for Android](#head)
+
+[O2 Mobile SDK Tutorial - for Android](#head)
 1. [What is the O2 Mobile SDK?](#what)
 2. [Main SDK Features](#features)
 3. [Why would I use the O2 Mobile SDK?](#why)
@@ -17,7 +19,7 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 7. [High-Level Architecture Overview](#architecture)
 8. [How the SDK works](#how)
 9. [Default (Player) Controls UX](#ux)
-10. [TL;DR – Quick Start](#qs)
+10. [TLDR: Quick Start](#qs)
 11. [Tutorial 1 – Playing Videos](#t1)
 	1. [Setting default player controls’ tint color](#t11)
 	2. [Playing with AutoPlay on/off](#t12)
@@ -45,14 +47,18 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 
 
 
-## What is the O2 Mobile SDK? <a name="what"></a>
+<a name="what"></a>
+## What is the O2 Mobile SDK?
+
 The O2 Mobile SDK (OMSDK or SDK) is a native Android SDK with the sole purpose for playing and monetizing videos from the Oath O2 video platform in your app. The OMSDK is written in Swift and is delivered as a framework. You can include this in your app projects either via your Gradle build script.
 
 As part of playing videos, the OMSDK also handles video ads (pre-roll, mid-roll, and post-roll) and associated videos and ads playback and performance analytics. Analytics are focused on tracking what is played, how far it is played (e.g., deciles, quartiles), and details about the actual device or network. For more details on the analytics supported or to access the analytics data, you will work with the [Video Support Team](mailto:video.support@oath.com) to build reports that focus specifically on your app’s video and ads performance.
 
 The SDK includes a complete default video player controls UX (user experience), which includes a limited albeit robust set of customization options. The controls implementation is fully open source, and the SDK architecture allows for you to include your own fully customized controls UX, should you not be interested in the built-in default one.
 
-## Main SDK Features <a name="features"></a>
+<a name="features"></a>
+## Main SDK Features
+
 * Playback of one or more individual videos or a single playlist of videos
 * Video playback of VOD (video on demand), 360°, and LIVE streaming video types
 * Supports either .mp4 or .m3u8 (HLS) formats
@@ -66,7 +72,9 @@ The SDK includes a complete default video player controls UX (user experience), 
 * Complete apps control of the frame where videos play
 * Google ChromeCast support
 
-## Why would I use the O2 Mobile SDK? <a name="why"></a>
+<a name="why"></a>
+## Why would I use the O2 Mobile SDK?
+
 The O2 Mobile SDK is used to natively play O2 videos. If you have a native app, you should use the SDK. The main reason as to why you’d want to use the SDK, is because you get all the ads and analytics for free. The ads are important for monetization. Analytics are important for tracking your app’s video and video ads performance and usage. This helps you understand what your users are watching with your app, and how much.
 
 There are several technical advantages to using the native OMSDK over a web player-based solution. We won’t go into these in depth in this document, but here are some of the advantages:
@@ -78,10 +86,13 @@ There are several technical advantages to using the native OMSDK over a web play
 * Some platforms don’t have webviews or webviews are inconsistent and unreliable (e.g., Fire TV)
 * More customization options
 
-## Advertising Info and User Tracking <a name="privacy"></a>
+<a name="privacy"></a>
+## Advertising Info and User Tracking
+
 The O2 Mobile SDK does not track anything that is not related to playing videos or video ads. We use the IDFA (ID for advertisers) value and respect the user's settings for Limit Ad Tracking. The device geolocation is determined by our backend video servers based on IP address, for the purposes of determining and filtering out content that is geo-restricted by content owners. The SDK does not explicitly use the built-in Location Services APIs, and thus does not require your users to grant access to device location data.
 
-## Starting Requirements <a name="requirements"></a>
+<a name="requirements"></a>
+## Starting Requirements
 
 * Android Studio 2+
 * Java source code\*
@@ -163,11 +174,14 @@ The complete implementation of the default player controls UX is open-source and
 The default Android Custom Controls UX implementation repo can be found here: 
 [O2 Mobile SDK Controls for Android](https://github.com/aol-public/OneMobileSDK-controls-android)
 
-## TL;DR – Quick Start <a name="qs"></a>
+<a name="qs"></a>
+## TLDR: Quick Start
+
 Want to dive right in, quickly and directly, you can jump here to get started using our legacy documentation: 
 [Getting Started for Android](https://github.com/aol-public/OneMobileSDK-releases-android/blob/maven/README.md)
 
-### Tutorial 1 – Playing Videos <a name="t1"></a>
+<a name="t1"></a>
+### Tutorial 1 – Playing Videos
 
 [Play video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
 
@@ -205,7 +219,8 @@ player.setMute(false);
 
 Many (but not all) of the videos in the O2 video platform, have multiple renditions. There may be some set of circumstances where you do not want to use HLS (.m3u8) renditions, and therefore, want to force the alternate high resolution .mp4 rendition. As a result, our SDK has the ability to override or disable getting the default HLS rendition. Look for this alternate initialization code in this tutorial sample for an example of how to programmatically control this.
 
-### Tutorial 2 – Customizing the Default Controls UX <a name="t2"></a>
+<a name="t2"></a>
+### Tutorial 2 – Customizing the Default Controls UX
 
 This tutorial sample shows you how to further modify the default controls UX.
 
