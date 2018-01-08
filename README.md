@@ -162,8 +162,7 @@ The default player controls UX contains the following elements:
 * LIVE indicator
 * 360° View Orientation Compass / Orientation Reset button
 * Closed Captioning/SAP Settings button
-* Picture-in-Picture (PiP) button
-* AirPlay button
+* ChromeCast button
 * 4 app-custom sidebar buttons
 
 This video controls implementation allows for a few runtime customizations, that you can set on a player by player basis. This includes:
@@ -189,7 +188,7 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 [Getting Started for Android](https://github.com/aol-public/OneMobileSDK-releases-android/blob/maven/README.md)
 
 <a name="t1"></a>
-### Tutorial 1 – Playing Videos
+## Tutorial 1 – Playing Videos
 
 [Play video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
 
@@ -200,13 +199,14 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
 
 <a name="t11"></a>
-##### Setting default player controls’ tint color
+#### Setting default player controls’ tint color
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
 
 The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the PlayerView along with the PlayerControlsView inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
 
-##### Playing with AutoPlay on/off <a name="t12"></a>
+<a name="t12"></a>
+#### Playing with AutoPlay on/off
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/AutoplayOffActivity.java)
 
@@ -214,7 +214,8 @@ By default, the SDK plays videos with AutoPlay mode on.  This means, that as soo
 
 If AutoPlay mode is off, the user will have to tap the play button to start the playback process. Alternatively, you can programmatically do this by controlling the Player object.
 
-##### Playing Muted <a name="t13"></a>
+<a name="t13"></a>
+#### Playing Muted
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayMutedActivity.java)
 
@@ -224,16 +225,17 @@ player.setMute(true);
 player.setMute(false);
 ```
 
-##### Disabling HLS (or forcing MP4 playback) <a name="t14"></a>
+<a name="t14"></a>
+#### Disabling HLS (or forcing MP4 playback)
 
 Many (but not all) of the videos in the O2 video platform, have multiple renditions. There may be some set of circumstances where you do not want to use HLS (.m3u8) renditions, and therefore, want to force the alternate high resolution .mp4 rendition. As a result, our SDK has the ability to override or disable getting the default HLS rendition. Look for this alternate initialization code in this tutorial sample for an example of how to programmatically control this.
 
 <a name="t2"></a>
-### Tutorial 2 – Customizing the Default Controls UX
+## Tutorial 2 – Customizing the Default Controls UX
 
 This tutorial sample shows you how to further modify the default controls UX.
 
-##### Hiding Various Controls buttons <a name="t21"></a>
+#### Hiding Various Controls buttons <a name="t21"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/HiddenButtonsControlsActivity.java)
 
@@ -250,13 +252,13 @@ You can change the look of the default controls UX on a player-by-player basis t
 
 If you hide the title, and bottom element buttons such as CC/SAP, PiP, and ChromeCast, the seekbar will fall down closer to the bottom of the video frame, to cover the gap usually left for those elements. See this tutorial for examples of how to hide/show these elements.
 
-##### Closed Captioning / SAP Settings button <a name="t22"></a>
+#### Closed Captioning / SAP Settings button <a name="t22"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/ModifiedCcSapActivity.java)
 
 This new feature of the OMSDK is generally dependent on having this information in the HLS stream. There are ways to filter out what CC languages and SAP audio tracks are available. Also, there’s a way to control what the choices are for a given video. One reason to control this may be to implement a “sticky” closed captioning setting. By default, turning CC on only applies the the current playing video. A next or previous video would not have CC on by default. If you wanted your app to support a sticky setting for this, you would do it yourself. This part of this tutorial will show you how to accomplish this.
 
-##### Using the 4 Custom Sidebar buttons <a name="t23"></a>
+#### Using the 4 Custom Sidebar buttons <a name="t23"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/SidebarButtonsActivity.java)
 
@@ -266,47 +268,47 @@ This new feature of the OMSDK is generally dependent on having this information 
 
 Use this sample to see how to add custom code and behaviors to one of the 4 sidebar buttons. The Sidebar buttons are part of the default player controls UX and are there for you to add up to 4 different overlays/behaviors to your player. You provide the button graphics – icons for normal, selected, and highlighted modes, and you provide a handler to be called in the case of a button tap. The SDK will handle showing/hiding the buttons along with the other player controls.
 
-##### Setting the LIVE indicator’s tint color <a name="t24"></a>
+#### Setting the LIVE indicator’s tint color <a name="t24"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/LiveIndicatorTintActivity.java)
 
 The LIVE indicator only appears during a LIVE streaming video playback. This will not appear for a video on demand video. Part of the LIVE indicator is the ability to colorize the • that appears next to the LIVE indicator. In general, you may want to use a standard pure-red color. However, it’s possible that you want to use your app’s brand color or while here instead. You can use black or any dark-gray color, but that is ill advised, because of the general nature of video to have lots of blacks in it. The sample code in this example shows how to set this.
 
-### Tutorial 3 – Observing the Player <a name="t3"></a>
+## Tutorial 3 – Observing the Player <a name="t3"></a>
 
 This tutorial sample shows you how to observe just about everything you can observe from OMSDK `Player` objects. As you would suspect, many properties that can be observed, can also be set or manipulated.
 
-##### Current Playback State and Position <a name="t31"></a>
+#### Current Playback State and Position <a name="t31"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/CurrentStateActivity.java)
 
 Determining the current state of the `Player` is a key need for apps … most app-level video playback logic starts here. In addition to the play/pause state, also includes the current position. Once you can query for these property values, you can also programmatically modify them.
 
-##### Pausing or Resume Playback and Seeking ######
+#### Pausing or Resume Playback and Seeking #####
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/PauseSeekPlayActivity.java)
 
-##### Looping Playback <a name="t32"></a>
+#### Looping Playback <a name="t32"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/LoopPlaybackActivity.java)
 
 If your app has some need to loop a `Player` (one video or many), such as running a kiosk-style interface, for example. This is an easy operation to accomplish with the OMSDK. Look in this example, to see how to determine when playback finishes, and how to reset the video index back to the first video and start it over.
 
-##### LIVE, VOD, or 360°? <a name="t33"></a>
+#### LIVE, VOD, or 360°? <a name="t33"></a>
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/InspectVideoTypeActivity.java)
 
 You may need to inspect some more metadata on the video, such as what type of video this is – LIVE, video on demand, or 360°. This tutorial sample shows how to inspect this. You may need to make certain app design or UX decisions accordingly, based on the type of video that’s currently playing.
 
-##### Manually Hooking up Previous or Next Videos <a name="t34"></a>
+#### Manually Hooking up Previous or Next Videos <a name="t34"></a>
 
 There are many legitimate app UX circumstance, that can dictate the dynamicness of a video player – meaning, that not every app design will simply be setup to operate off fixed playlists or lists of videos. As such, the Player can be modified on the fly to dynamically handle what video is played when the previous or next buttons are tapped. This example tutorial has sample code that shows you precisely how to do this. However, be judicious with the usage of this behavior, and make sure it matches a natural flow of content for the user.
 
-### Tutorial 4 – Error Handling in the SDK <a name="t4"></a>
+## Tutorial 4 – Error Handling in the SDK <a name="t4"></a>
 
 This tutorial sample shows you how to handle various different types of errors that can occur when using the OMSDK and how to catch and identify them. How you handle these in your app is up to you. The SDK is designed to either return a valid SDK or Player instance otherwise it returns an error. There is no middle ground. If you don’t get a valid instance, you should look at the error result instead to determine why. This section describes some common issues.
 
-##### SDK Initialization Errors <a name="t41"></a>
+#### SDK Initialization Errors <a name="t41"></a>
 
 For various reasons, the SDK may fail to initialize. The most common reason for this, is you’re trying to use the OMSDK without first having [onboarded your app’s bundle ID](). In this case, you’ll get an error that looks like something like this:
 ```
@@ -315,10 +317,10 @@ For various reasons, the SDK may fail to initialize. The most common reason for 
 } 
 ```
 
-##### Player Initialization Errors <a name="t42"></a>
+#### Player Initialization Errors <a name="t42"></a>
 For various reasons, the `Player` may fail to initialize. 
 
-##### Restricted Videos <a name="t43"></a>
+#### Restricted Videos <a name="t43"></a>
 
 Videos can be restricted for playback in two very distinct ways. The first is geo restricted content. The second is device restricted content. If you’re attempting to initialize a `Player` with content that’s restricted against your device or geolocation, that content is automatically filtered out. Only valid, playable video IDs are accepted, and have their metadata pulled into the `Player` instance. If you end up with no `Player` instance, it’s because there are no valid video IDs for it to operate on. So, you get an error this this effect.
 
@@ -328,7 +330,7 @@ The OMSDK supports tvOS with the same source framework as iOS. Besides not havin
 
 Because there is no way to tap on the screen, you cannot access the ad URL. And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
 
-### Tutorial 5 – Remote Control Support for TV Consoles <a name="t5"></a>
+## Tutorial 5 – Remote Control Support for TV Consoles <a name="t5"></a>
 
 Since there is no SDK difference for mobile devices vs. TV console devices, all the capabilities described above in [Tutorial 1](#t1) are still valid. However, there are a couple subtle differences that are required for proper remote control support on the Android TV and Amazon Fire TV smart TVs or console devices.
 
