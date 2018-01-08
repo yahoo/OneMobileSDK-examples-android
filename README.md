@@ -13,7 +13,7 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 1. [What is the O2 Mobile SDK?](#what)
 2. [Main SDK Features](#features)
 3. [Why would I use the O2 Mobile SDK?](#why)
-4. [Privacy Policy](#privacy)
+4. [Advertising Info and User Tracking](#privacy)
 5. [Starting Requirements](#requirements)
 6. [Onboarding your Apps for SDK Authentication](#onboarding)
 7. [High-Level Architecture Overview](#architecture)
@@ -94,23 +94,27 @@ The O2 Mobile SDK does not track anything that is not related to playing videos 
 <a name="requirements"></a>
 ## Starting Requirements
 
-* Android Studio 2+
-* Java source code\*
-* Gradle build system
-* Includes dependency on ExoPlayer v2.5.2
-* Android mobile device running Android API level 16 or later (Android OS v5.0/API 19 or later required for adaptive HLS rendering) – including Android TV or Amazon Fire TV set top box devices
-* Onboarded application package name
+* **Android Studio 2+**
+	* **Java source code\* **
+	* **Gradle build system**
+	* **Includes dependency on ExoPlayer v2.5.2**
+* **Android mobile device running Android API level 16 or later (Android OS v5.0/API 19 or later required for adaptive HLS rendering) – including Android TV or Amazon Fire TV set top box devices**
+* **Onboarded application package name**
 
 **\* Note**: Future Kotlin support is currently being evaluated.
 
-## Onboarding your Apps for SDK Authentication <a name="onboarding"></a>
+<a name="onboarding"></a>
+## Onboarding your Apps for SDK Authentication
+
 In order for the OMSDK to authenticate itself for video playback within your app, we pass the containing app’s unique App Store package name to our back end service. You need to email the [Video Support Team](mailto:video.support@oath.com) to register all of your app package names for OMSDK usage. You can also register multiple package names against your same app entity. Possible reasons to do this, is to allow for a dev/test app package name or an enterprise package name, that can co-exist on a device alongside your production app. Also, both iOS (bundle ID) and Android app package names can either be the same or different – for the same app. Registration not only authenticates your application, but it ensures your backend video and ads analytics are all configured properly. In addition, this registration information also defines all the video content your app is allowed to playback through the SDK.
 
 The sample projects are all set up to use the following test-only package name:
 
 `com.aol.mobile.one.testapp`
 
-## High-Level Architecture Overview <a name="architecture"></a>
+<a name="architecture"></a>
+## High-Level Architecture Overview
+
 At a high-level, the OMSDK architecture is composed of the following components:
 * SDK Core
 * O2 VRM (video rights management) VAST Ads Engine
@@ -121,7 +125,9 @@ At a high-level, the OMSDK architecture is composed of the following components:
 
 Our modular approach makes it easy for us (or you) to add new renderers in the future, or for you to add your own custom video player controls UX implementation. Under the hood, we rely on Google’s ExoPlayer to handle the actual video playback.
 
-## How the SDK works <a name="how"></a>
+<a name="how"></a>
+## How the SDK works
+
 At a very basic level, the OMSDK controls only the video frame. Because of this, you are completely in control of your app’s design and UX (look and feel). You can control whether videos play in a small view, in-place over a thumbnail image, or at full-screen. Your app also has complete control over device rotation, use of view/navigation controllers, scrollers, and any transitions between them. The SDK does not dictate any overall visual design or behavior on your app.
 
 If you choose to use the SDK’s built-in default player controls UX implementation, then that part of the video UX is imposed on you. All controls rendering is also done within the frame you provide for the video. Regardless of which controls UX you use, we currently do not allow any customization or overriding of the ads playback UX (which is different from the normal video playback UX), so that visual interface is dictated, and you cannot override it. Future customization options are planned here.
@@ -129,10 +135,10 @@ If you choose to use the SDK’s built-in default player controls UX implementat
 To play a video, you follow these very basic steps:
 1. Initialize an instance of the OMSDK
 2. Initialize a new `Player` object with a video ID
-3. Attach it to a view controller
+3. Bind it with a `PlayerView`
 4. Play it
 
-That’s it!
+**That’s it!**
 
 Behind the scenes, what happens is this … the initialization of an instance of the SDK takes your app’s bundle ID, and passes it to our back-end micro services to authenticate your application for video playback within the O2 video platform. The server passes back all the necessary playback and authentication information down to that instance of the SDK, for use during it’s lifespan. When you construct a new `Player` object from that SDK instance, it communicates with our micro services to obtain all the necessary video metadata (e.g., thumbnails and video URLs, duration, etc.). This `Player` object will play and replay the associated video until deinitialized.
 
@@ -142,7 +148,9 @@ The runtime circumstances and algorithm for getting an ad or not, are not in the
 
 **Note**: The SDK only operates with an active network connection – without it, you will not be able to do anything.
 
-## Default (Player) Controls UX <a name="ux"></a>
+<a name="ux"></a>
+## Default (Player) Controls UX
+
 The default player controls UX contains the following elements:
 * Play/Pause/Replay button (with loading animation)
 * ± 10 second skip buttons
@@ -191,7 +199,8 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 
 This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
 
-##### Setting default player controls’ tint color <a name="t11"></a>
+<a name="t11"></a>
+##### Setting default player controls’ tint color
 
 [link](https://github.com/aol-public/OneMobileSDK-examples-android/blob/Tutorial-three/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
 
