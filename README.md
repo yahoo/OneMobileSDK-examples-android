@@ -95,7 +95,7 @@ The O2 Mobile SDK does not track anything that is not related to playing videos 
 ## Starting Requirements
 
 * **Android Studio 2+**
-	* **Java source code\* **
+	* **Java source code** \*
 	* **Gradle build system**
 	* **Includes dependency on ExoPlayer v2.5.2**
 * **Android mobile device running Android API level 16 or later (Android OS v5.0/API 19 or later required for adaptive HLS rendering) – including Android TV or Amazon Fire TV set top box devices**
