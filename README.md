@@ -190,18 +190,18 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 <a name="t1"></a>
 ## Tutorial 1 – Playing Videos
 
-[Play Video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
+Tutorial Samples:
 
-[Play Array of Videos](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayArrayActivity.java)
-
-[Play Video Playlist](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayPlaylistActivity.java)
+	[Play Video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
+	[Play Array of Videos](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayArrayActivity.java)
+	[Play Video Playlist](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayPlaylistActivity.java)
 
 This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
 
 <a name="t11"></a>
 #### Setting default player controls’ tint color
 
-[Setting Controls’ Tint Color](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
+Tutorial Sample: [Setting Controls’ Tint Color](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
 
 The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the PlayerView along with the PlayerControlsView inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
 
@@ -256,7 +256,7 @@ If you hide the title, and bottom element buttons such as CC/SAP, PiP, and Chrom
 <a name="t22"></a>
 #### Closed Captioning / SAP Settings button
 
-[Modify CC/SAP Settings button](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/ModifiedCcSapActivity.java)
+[Modify CC/SAP Settings Button](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/ModifiedCcSapActivity.java)
 
 This new feature of the OMSDK is generally dependent on having this information in the HLS stream. There are ways to filter out what CC languages and SAP audio tracks are available. Also, there’s a way to control what the choices are for a given video. One reason to control this may be to implement a “sticky” closed captioning setting. By default, turning CC on only applies the the current playing video. A next or previous video would not have CC on by default. If you wanted your app to support a sticky setting for this, you would do it yourself. This part of this tutorial will show you how to accomplish this.
 
