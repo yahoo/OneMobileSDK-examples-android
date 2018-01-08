@@ -40,8 +40,8 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 	2. [Player Initialization Errors](#t42)
 	3. [Restricted Videos](#t43)
 15. [Specific Notes for Android TV and Amazon Fire TV Apps](#tvos)
-16. [Tutorial 5 – Remote Control Support for TV Consoles](#t5)
-17. [Next Steps](#go2)
+	1. [Tutorial 5 – Remote Control Support for TV Consoles](#t5)
+16. [Next Steps](#go2)
 	1. [Getting O2 Video/Playlist IDs into your apps](#getting-o2-videoplaylist-ids-into-your-apps)
 	2. [Controlling Ads via your O2 Portal Account](#controlling-ads-via-your-o2-portal-account)
 
@@ -385,7 +385,7 @@ The OMSDK supports tvOS with the same source framework as iOS. Besides not havin
 Because there is no way to tap on the screen, you cannot access the ad URL. And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
 
 <a name="t5"></a>
-## Tutorial 5 – Remote Control Support for TV Consoles
+### Tutorial 5 – Remote Control Support for TV Consoles
 
 Since there is no SDK difference for mobile devices vs. TV console devices, all the capabilities described above in [Tutorial 1](#t1) are still valid. However, there are a couple subtle differences that are required for proper remote control support on the Android TV and Amazon Fire TV smart TVs or console devices.
 
