@@ -203,7 +203,7 @@ This tutorial sample shows you how to quickly init the OMSDK and play videos usi
 <a name="t11"></a>
 #### Setting default player controls’ tint color
 
-The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the PlayerView along with the PlayerControlsView inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
+The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the `PlayerView` along with the `PlayerControlsView` inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
 
 ##### _Tutorial Sample:_
 
@@ -254,10 +254,9 @@ You can change the look of the default controls UX on a player-by-player basis t
 * Elapsed time
 * Video duration
 * Closed Captioning/SAP Settings button
-* Picture-in-Picture (PiP) button
 * ChromeCast button
 
-If you hide the title, and bottom element buttons such as CC/SAP, PiP, and ChromeCast, the seekbar will fall down closer to the bottom of the video frame, to cover the gap usually left for those elements. See this tutorial for examples of how to hide/show these elements.
+If you hide the title, and bottom element buttons such as CC/SAP and ChromeCast, the seekbar will fall down closer to the bottom of the video frame, to cover the gap usually left for those elements. See this tutorial for examples of how to hide/show these elements.
 
 ##### _Tutorial Sample:_
 
@@ -337,6 +336,10 @@ You may need to inspect some more metadata on the video, such as what type of vi
 
 There are many legitimate app UX circumstance, that can dictate the dynamicness of a video player – meaning, that not every app design will simply be setup to operate off fixed playlists or lists of videos. As such, the Player can be modified on the fly to dynamically handle what video is played when the previous or next buttons are tapped. This example tutorial has sample code that shows you precisely how to do this. However, be judicious with the usage of this behavior, and make sure it matches a natural flow of content for the user.
 
+##### _Tutorial Sample:_
+
+> _sample coming soon_
+
 <a name="t4"></a>
 ## Tutorial 4 – Error Handling in the SDK
 
@@ -386,6 +389,10 @@ Because there is no way to tap on the screen, you cannot access the ad URL. And 
 
 Since there is no SDK difference for mobile devices vs. TV console devices, all the capabilities described above in [Tutorial 1](#t1) are still valid. However, there are a couple subtle differences that are required for proper remote control support on the Android TV and Amazon Fire TV smart TVs or console devices.
 
+##### _Tutorial Sample:_
+
+> _sample coming soon_
+
 <a name="go2"></a>
 ## Next Steps
 
@@ -397,4 +404,4 @@ For more information about the O2 Search API, the O2 Portal, or creation and man
 
 ### Controlling Ads via your O2 Portal Account
 
-TBD...
+_TBD…_
