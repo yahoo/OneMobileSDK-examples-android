@@ -39,7 +39,9 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 	3. [Restricted Videos](#t43)
 15. [Specific Notes for Android TV and Amazon Fire TV Apps](#tvos)
 16. [Tutorial 5 – Remote Control Support for TV Consoles](#t5)
-17. [Next Steps – Getting O2 Video/Playlist IDs into your apps](#go2)
+17. [Next Steps](#go2)
+	1. [Getting O2 Video/Playlist IDs into your apps](#getting-o2-videoplaylist-ids-into-your-apps)
+	2. [Controlling Ads via your O2 Portal Account](#controlling-ads-via-your-o2-portal-account)
 
 
 
@@ -306,7 +308,13 @@ Because there is no way to tap on the screen, you cannot access the ad URL. And 
 
 Since there is no SDK difference for mobile devices vs. TV console devices, all the capabilities described above in [Tutorial 1](#t1) are still valid. However, there are a couple subtle differences that are required for proper remote control support on the Android TV and Amazon Fire TV smart TVs or console devices.
 
-## Next Steps – Getting O2 Video/Playlist IDs into your apps <a name="go2"></a>
+## Next Steps <a name="go2"></a>
+
+### Getting O2 Video/Playlist IDs into your apps
 The OMSDK operates on O2 video and playlist IDs. That said, it is the application’s responsibility to dynamically acquire video IDs and/or playlist IDs either via your own CMS (content management system) or perhaps via a direct O2 Search API call. Since apps are generally dynamic in their content (video or otherwise), you need to figure out how to deliver these content IDs into your app, so they can be passed to the SDK to play against. Although unadvised, the easiest possible approach is to hardcode one or more playlist ID[s] into an app, and let those playlists dynamically change their content via the O2 Portal. The upside to this is you don’t need a CMS or further server communications on your end to get video information into your app, and thus to the SDK. The downside, is that if any of those IDs are ever deleted, the app will virtually be useless in terms of O2 video playback.
 
 For more information about the O2 Search API, the O2 Portal, or creation and manipulation of playlists, please email the [Video Support Team](mailto:video.support@oath.com).
+
+### Controlling Ads via your O2 Portal Account
+
+TBD...
