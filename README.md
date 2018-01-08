@@ -203,7 +203,8 @@ This tutorial sample shows you how to quickly init the OMSDK and play videos usi
 <a name="t11"></a>
 #### Setting default player controls’ tint color
 
-> _Tutorial Sample:_
+**_Tutorial Sample:_**
+
 > [Setting Controls’ Tint Color](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
 
 The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the PlayerView along with the PlayerControlsView inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
