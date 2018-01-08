@@ -190,7 +190,7 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 <a name="t1"></a>
 ## Tutorial 1 – Playing Videos
 
-#### _Tutorial Samples:_
+##### _Tutorial Samples:_
 
 > [Play Video](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/PlayVideoActivity.java)
 >
@@ -203,7 +203,7 @@ This tutorial sample shows you how to quickly init the OMSDK and play videos usi
 <a name="t11"></a>
 #### Setting default player controls’ tint color
 
-##### **_Tutorial Sample:_**
+##### _Tutorial Sample:_
 
 > [Setting Controls’ Tint Color](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/SetTintColorActivity.java)
 
@@ -212,7 +212,7 @@ The built-in tint color of the default video player controls UX is pink/magenta.
 <a name="t12"></a>
 #### Playing with AutoPlay on/off
 
-###### **_Tutorial Sample:_**
+##### **_Tutorial Sample:_**
 
 > [Turning Off AutoPlay](https://github.com/aol-public/OneMobileSDK-examples-android/blob/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/one/AutoplayOffActivity.java)
 
