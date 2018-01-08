@@ -292,7 +292,7 @@ The LIVE indicator only appears during a LIVE streaming video playback. This wil
 
 ##### _Tutorial Sample:_
 
-> [Tinting LIVE Indicator](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/LiveIndicatorTintActivity.java)
+> [Tinting the LIVE Indicator](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/two/LiveIndicatorTintActivity.java)
 
 <a name="t3"></a>
 ## Tutorial 3 – Observing the Player
