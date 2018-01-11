@@ -7,6 +7,8 @@ This document will describe basic concepts and then will link you to sample proj
 
 As always, we highly appreciate, welcome, and value all feedback on this documentation or the OMSDK in any way, shape, or form. If you have any suggestions for corrections, additions, or any further clarity, please don’t hesitate to email the [Video Support Team](mailto:video.support@oath.com).
 
+If you want to see the code - go to this [section](#qs)!
+
 ## Table of Contents
 
 [O2 Mobile SDK Tutorial - for Android](#head)
@@ -39,7 +41,7 @@ As always, we highly appreciate, welcome, and value all feedback on this documen
 	1. [SDK Initialization Errors](#t41)
 	2. [Player Initialization Errors](#t42)
 	3. [Restricted Videos](#t43)
-15. [Specific Notes for Android TV and Amazon Fire TV Apps](#tvos)
+15. [Specific Notes for Android TV and Amazon Fire TV Apps](#firetv)
 	1. [Tutorial 5 – Remote Control Support for TV Consoles](#t5)
 16. [Next Steps](#go2)
 	1. [Getting O2 Video/Playlist IDs into your apps](#getting-o2-videoplaylist-ids-into-your-apps)
@@ -377,12 +379,12 @@ Videos can be restricted for playback in two very distinct ways. The first is ge
 
 > [Handline Restricted Videos](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/four/RestrictedVideoActivity.java)
 
-<a name="tvos"></a>
+<a name="firetv"></a>
 ## Specific Notes for Android TV and Amazon Fire TV Apps
 
-The OMSDK supports tvOS with the same source framework as iOS. Besides not having a finger to tap on the screen, the biggest difference for tvOS is that you cannot use the SDK’s default video player controls UX. Similarly, you cannot create your own custom video player controls UX. You must play videos using the standard built-in tvOS video player, with remote-control support.
+The OMSDK supports Android TV and Amazon Fire TV devices with the same source library as Android.  Besides not having a finger to tap on the screen, the biggest difference for Android TV or Fire TV is that you have to deal with remote-control support.
 
-Because there is no way to tap on the screen, you cannot access the ad URL. And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
+Because there is no way to *tap* on the screen, you cannot access the ad URL.  And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
 
 <a name="t5"></a>
 ### Tutorial 5 – Remote Control Support for TV Consoles
@@ -404,4 +406,6 @@ For more information about the O2 Search API, the O2 Portal, or creation and man
 
 ### Controlling Ads via your O2 Portal Account
 
-_TBD…_
+You have some options with respect to ads and the OMSDK.  During early development, your developers are going to want ads disabled because they’re intrusive to the development process, and unnecessary.  Before you launch, you will likely want to see test or Public Service Announcement (PSA) ads enabled all the time, so you can get a feel for how ads will impact your users in various parts of your app.  And, as you launch, you’ll want to enable live production ads for your app, so you’re ready to go as soon as your app passes through the App Store submission process.
+
+To make changes to the ads settings for your app, please contact [Video Support Team](mailto:video.support@oath.com) and they’ll promptly assist you.
