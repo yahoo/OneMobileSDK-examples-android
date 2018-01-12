@@ -52,7 +52,7 @@ If you want to see the code - go to this [section](#qs)!
 <a name="what"></a>
 ## What is the O2 Mobile SDK?
 
-The O2 Mobile SDK (OMSDK or SDK) is a native Android SDK with the sole purpose for playing and monetizing videos from the Oath O2 video platform in your app. The OMSDK is written in Swift and is delivered as a framework. You can include this in your app projects either via your Gradle build script.
+The O2 Mobile SDK (OMSDK or SDK) is a native Android SDK with the sole purpose for playing and monetizing videos from the Oath O2 video platform in your app.  The OMSDK is written in Java and is delivered as a framework.  You can include this in your app projects via your Gradle build script.
 
 As part of playing videos, the OMSDK also handles video ads (pre-roll, mid-roll, and post-roll) and associated videos and ads playback and performance analytics. Analytics are focused on tracking what is played, how far it is played (e.g., deciles, quartiles), and details about the actual device or network. For more details on the analytics supported or to access the analytics data, you will work with the [Video Support Team](mailto:video.support@oath.com) to build reports that focus specifically on your app’s video and ads performance.
 
