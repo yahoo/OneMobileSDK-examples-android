@@ -52,7 +52,7 @@ If you want to see the code - go to this [section](#qs)!
 <a name="what"></a>
 ## What is the O2 Mobile SDK?
 
-The O2 Mobile SDK (OMSDK or SDK) is a native Android SDK with the sole purpose for playing and monetizing videos from the Oath O2 video platform in your app.  The OMSDK is written in Java and is delivered as a framework.  You can include this in your app projects via your Gradle build script.
+The O2 Mobile SDK (OMSDK or SDK) is a native Android SDK with the sole purpose for playing and monetizing videos from the Oath O2 video platform in your app. The OMSDK is written in Java and is delivered as a framework. You can include this in your app projects via your Gradle build script.
 
 As part of playing videos, the OMSDK also handles video ads (pre-roll, mid-roll, and post-roll) and associated videos and ads playback and performance analytics. Analytics are focused on tracking what is played, how far it is played (e.g., deciles, quartiles), and details about the actual device or network. For more details on the analytics supported or to access the analytics data, you will work with the [Video Support Team](mailto:video.support@oath.com) to build reports that focus specifically on your app’s video and ads performance.
 
@@ -192,7 +192,7 @@ Want to dive right in, quickly and directly, you can jump here to get started us
 <a name="t1"></a>
 ## Tutorial 1 – Playing Videos
 
-This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code.  Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way.  The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
+This tutorial sample shows you how to quickly init the OMSDK and play videos using all the default options and behaviors, with very little code. Playing a single video, a list of individual videos, or videos from an O2 Playlist are all done the same way. The only difference between playing a single video or multiple videos is that the SDK strings multiple videos together, connects up the previous and next player controls UX buttons, and if AutoPlay is on - plays them straight through.
 
 ##### _Tutorial Samples:_
 
@@ -205,7 +205,7 @@ This tutorial sample shows you how to quickly init the OMSDK and play videos usi
 <a name="t11"></a>
 #### Setting default player controls’ tint color
 
-The built-in tint color of the default video player controls UX is pink/magenta.  This is deliberate.  You set the main and accent tint colors of the default player controls by setting these in the `PlayerView` along with the `PlayerControlsView` inside it.  In this sample, you’ll find a code block that shows you how to override the default controls colors.
+The built-in tint color of the default video player controls UX is pink/magenta. This is deliberate. You set the main and accent tint colors of the default player controls by setting these in the `PlayerView` along with the `PlayerControlsView` inside it. In this sample, you’ll find a code block that shows you how to override the default controls colors.
 
 ##### _Tutorial Sample:_
 
@@ -214,7 +214,7 @@ The built-in tint color of the default video player controls UX is pink/magenta.
 <a name="t12"></a>
 #### Playing with AutoPlay on/off
 
-By default, the SDK plays videos with AutoPlay mode on.  This means, that as soon as you construct a player, the first video queues to play immediately (first, calling for an ad, of course).  In this case, no further user action is required.  As soon as the ad or the video is ready to play, it will.  To override this behavior and turn off AutoPlay, look for the alternate way to construct the Player in this sample.
+By default, the SDK plays videos with AutoPlay mode on. This means, that as soon as you construct a player, the first video queues to play immediately (first, calling for an ad, of course). In this case, no further user action is required. As soon as the ad or the video is ready to play, it will. To override this behavior and turn off AutoPlay, look for the alternate way to construct the Player in this sample.
 
 If AutoPlay mode is off, the user will have to tap the play button to start the playback process. Alternatively, you can programmatically do this by controlling the Player object.
 
@@ -353,7 +353,7 @@ This tutorial sample shows you how to handle various different types of errors t
 For various reasons, the SDK may fail to initialize. The most common reason for this, is you’re trying to use the OMSDK without first having [onboarded your app’s bundle ID](). In this case, you’ll get an error that looks like something like this:
 ```
 {
-  "error": "Not found - com.company.ungregisteredapp"
+	"error": "Not found - com.company.ungregisteredapp"
 } 
 ```
 
@@ -373,7 +373,7 @@ For various reasons, the `Player` may fail to initialize.
 <a name="t43"></a>
 #### Restricted Videos
 
-Videos can be restricted for playback in two very distinct ways. The first is geo restricted content. The second is device restricted content. If you’re attempting to initialize a `Player` with content that’s restricted against your device or geolocation, that content is automatically filtered out. Only valid, playable video IDs are accepted, and have their metadata pulled into the `Player` instance. If you end up with no `Player` instance, it’s because there are no valid video IDs for it to operate on. So, you get an error this this effect.
+Videos can be restricted for playback in two very distinct ways. The first is geo restricted content. The second is device restricted content. If you’re attempting to initialize a `Player` with content that’s restricted against your device or geolocation, that content is automatically filtered out. Only valid, playable video IDs are accepted, and have their metadata pulled into the `Player` instance. If you end up with no `Player` instance, it’s because there are no valid video IDs for it to operate on. So, you get an error to this effect. This tutorial sample shows how to detect that a video is not playable because it is restricted.
 
 ##### _Tutorial Sample:_
 
@@ -382,9 +382,9 @@ Videos can be restricted for playback in two very distinct ways. The first is ge
 <a name="firetv"></a>
 ## Specific Notes for Android TV and Amazon Fire TV Apps
 
-The OMSDK supports Android TV and Amazon Fire TV devices with the same source library as Android.  Besides not having a finger to tap on the screen, the biggest difference for Android TV or Fire TV is that you have to deal with remote-control support.
+The OMSDK supports Android TV and Amazon Fire TV devices with the same source library as Android. Besides not having a finger to tap on the screen, the biggest difference for Android TV or Fire TV is that you have to deal with remote-control support.
 
-Because there is no way to *tap* on the screen, you cannot access the ad URL.  And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
+Because there is no way to *tap* on the screen, you cannot access the ad URL. And if you could, you may not even have a webview available on the device that would support properly rendering the ad URL.
 
 <a name="t5"></a>
 ### Tutorial 5 – Remote Control Support for TV Consoles
@@ -406,6 +406,6 @@ For more information about the O2 Search API, the O2 Portal, or creation and man
 
 ### Controlling Ads via your O2 Portal Account
 
-You have some options with respect to ads and the OMSDK.  During early development, your developers are going to want ads disabled because they’re intrusive to the development process, and unnecessary.  Before you launch, you will likely want to see test or Public Service Announcement (PSA) ads enabled all the time, so you can get a feel for how ads will impact your users in various parts of your app.  And, as you launch, you’ll want to enable live production ads for your app, so you’re ready to go as soon as your app passes through the App Store submission process.
+You have some options with respect to ads and the OMSDK. During early development, your developers are going to want ads disabled because they’re intrusive to the development process, and unnecessary. Before you launch, you will likely want to see test or Public Service Announcement (PSA) ads enabled all the time, so you can get a feel for how ads will impact your users in various parts of your app. And, as you launch, you’ll want to enable live production ads for your app, so you’re ready to go as soon as your app passes through the App Store submission process.
 
 To make changes to the ads settings for your app, please contact [Video Support Team](mailto:video.support@oath.com) and they’ll promptly assist you.
