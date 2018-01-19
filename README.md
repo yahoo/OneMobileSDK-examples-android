@@ -377,7 +377,7 @@ Videos can be restricted for playback in two very distinct ways. The first is ge
 
 ##### _Tutorial Sample:_
 
-> [Handline Restricted Videos](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/four/RestrictedVideoActivity.java)
+> [Handling Restricted Videos](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/four/RestrictedVideoActivity.java)
 
 <a name="firetv"></a>
 ## Specific Notes for Android TV and Amazon Fire TV Apps
