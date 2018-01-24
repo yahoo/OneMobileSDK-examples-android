@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aol.mobile.sdk.controls.viewmodel.TrackOptionVM;
+import com.aol.mobile.sdk.controls.ContentControls;
 import com.aol.mobile.sdk.testapp.TrackChooserAdapter.Item.Type;
 
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ public class TrackChooserAdapter extends BaseAdapter {
     @NonNull
     private final List<Item> items = new ArrayList<>();
 
-    public void updateData(@NonNull Context context, @NonNull LinkedList<TrackOptionVM> audioTracks,
-                           @NonNull LinkedList<TrackOptionVM> ccTracks) {
+    public void updateData(@NonNull Context context, @NonNull LinkedList<ContentControls.ViewModel.TrackOptionVM> audioTracks,
+                           @NonNull LinkedList<ContentControls.ViewModel.TrackOptionVM> ccTracks) {
         Resources resources = context.getResources();
         int headerColor = resources.getColor(android.R.color.white);
         int trackColor = resources.getColor(android.R.color.black);
@@ -38,14 +38,14 @@ public class TrackChooserAdapter extends BaseAdapter {
         items.clear();
         if (!audioTracks.isEmpty()) {
             items.add(new Item(headerColor, resources.getString(com.aol.mobile.sdk.controls.R.string.audio_tracks_title)));
-            for (TrackOptionVM audioTrack : audioTracks) {
+            for (ContentControls.ViewModel.TrackOptionVM audioTrack : audioTracks) {
                 items.add(new Item(trackColor, audioTrack, selectedIcon, Type.AUDIO, audioTracks.indexOf(audioTrack)));
             }
         }
 
         if (!ccTracks.isEmpty()) {
             items.add(new Item(headerColor, resources.getString(com.aol.mobile.sdk.controls.R.string.text_tracks_title)));
-            for (TrackOptionVM ccTrack : ccTracks) {
+            for (ContentControls.ViewModel.TrackOptionVM ccTrack : ccTracks) {
                 items.add(new Item(trackColor, ccTrack, selectedIcon, Type.CC, ccTracks.indexOf(ccTrack)));
             }
         }
@@ -161,7 +161,7 @@ public class TrackChooserAdapter extends BaseAdapter {
             this.index = -1;
         }
 
-        Item(int color, @NonNull TrackOptionVM track, @NonNull Drawable selectedIcon, @NonNull Type type, int index) {
+        Item(int color, @NonNull ContentControls.ViewModel.TrackOptionVM track, @NonNull Drawable selectedIcon, @NonNull Type type, int index) {
             this.color = color;
             this.imageVisibility = track.isSelected ? VISIBLE : INVISIBLE;
             this.imageDrawable = selectedIcon;

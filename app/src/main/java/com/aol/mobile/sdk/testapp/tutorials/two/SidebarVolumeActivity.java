@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.aol.mobile.sdk.controls.view.PlayerControlsView;
+import com.aol.mobile.sdk.controls.view.ContentControlsView;
 import com.aol.mobile.sdk.controls.view.SidePanel;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
@@ -51,10 +51,10 @@ public class SidebarVolumeActivity extends AppCompatActivity {
                     public void success(@NonNull Player player) {
                         playerFragment.getBinder().setPlayer(player);
 
-                        PlayerControlsView playerControlsView = playerFragment
+                        ContentControlsView contentControlsView = (ContentControlsView) playerFragment
                                 .getPlayerView().getContentControls();
 
-                        addSideBarButtons(playerControlsView.getSidePanel(), playerFragment.getBinder().getPlayer());
+                        addSideBarButtons(contentControlsView.getSidePanel(), playerFragment.getBinder().getPlayer());
 
                     }
 

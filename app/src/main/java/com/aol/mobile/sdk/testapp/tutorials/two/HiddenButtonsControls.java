@@ -3,16 +3,16 @@ package com.aol.mobile.sdk.testapp.tutorials.two;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.aol.mobile.sdk.controls.view.PlayerControlsView;
-import com.aol.mobile.sdk.controls.viewmodel.PlayerControlsVM;
+import com.aol.mobile.sdk.controls.ContentControls;
+import com.aol.mobile.sdk.controls.view.ContentControlsView;
 
-public class HiddenButtonsControls extends PlayerControlsView {
+public class HiddenButtonsControls extends ContentControlsView {
     public HiddenButtonsControls(@NonNull Context context) {
         super(context);
     }
 
     @Override
-    public void render(@NonNull PlayerControlsVM viewModel) {
+    public void render(@NonNull ContentControls.ViewModel viewModel) {
         /**
          * Here you can modify any property of the default content controls you like.
          * @see PlayerControlsVM class that holds information whether an item should

@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 .buildForVideo(VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-//                        playerFragment.getBinder()
-//                                .getPlayerView()
-//                                .setVideoControlsView(new CustomContentControls(MainActivity.this, null, 0));
+                        playerFragment.getPlayerView()
+                                .setContentControls(new CustomContentControls(MainActivity.this, null, 0));
                         playerFragment.getBinder().setPlayer(player);
                     }
 

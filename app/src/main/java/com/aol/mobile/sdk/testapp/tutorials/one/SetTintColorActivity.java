@@ -7,8 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.aol.mobile.sdk.controls.view.AdControlsView;
-import com.aol.mobile.sdk.controls.view.PlayerControlsView;
+import com.aol.mobile.sdk.controls.view.ContentControlsView;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
@@ -45,9 +44,9 @@ public class SetTintColorActivity extends AppCompatActivity {
                     @Override
                     public void success(@NonNull Player player) {
 
-                        PlayerControlsView contentControls = playerFragment.getPlayerView().getContentControls();
-                        contentControls.setMainColor(getResources().getColor(R.color.colorPrimary));
-                        contentControls.setAccentColor(getResources().getColor(R.color.colorAccent));
+                        ContentControlsView contentControlsView = (ContentControlsView) playerFragment.getPlayerView().getContentControls();
+                        contentControlsView.setMainColor(getResources().getColor(R.color.colorPrimary));
+                        contentControlsView.setAccentColor(getResources().getColor(R.color.colorAccent));
 
                         playerFragment.getBinder().setPlayer(player);
                     }

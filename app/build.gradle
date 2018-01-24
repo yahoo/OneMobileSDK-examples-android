@@ -15,8 +15,8 @@ android {
 
 dependencies {
     implementation ONE_MOBILE_SDK
+    implementation ONE_MOBILE_CHROMECAST
     implementation APP_COMPAT
     implementation RESOURCES
     implementation PICASSO
-    implementation "com.aol.one.publishers.android:chromecast:1.7"
 }
