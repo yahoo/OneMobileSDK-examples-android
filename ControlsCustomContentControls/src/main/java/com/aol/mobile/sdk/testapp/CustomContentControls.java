@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -23,14 +22,11 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.aol.mobile.sdk.controls.ControlsButton;
-import com.aol.mobile.sdk.controls.PlayerControls;
-import com.aol.mobile.sdk.controls.viewmodel.PlayerControlsVM;
-import com.aol.mobile.sdk.controls.viewmodel.TrackOptionVM;
+import com.aol.mobile.sdk.controls.ContentControls;
 
 import java.util.LinkedList;
 
-public class CustomContentControls extends LinearLayout implements PlayerControls {
+public class CustomContentControls extends LinearLayout implements ContentControls {
     @NonNull
     private LinearLayout llControlsRootContainer;
     @NonNull
@@ -40,21 +36,21 @@ public class CustomContentControls extends LinearLayout implements PlayerControl
     @NonNull
     private LinearLayout llTrackContainer;
     @NonNull
-    private Button btnPlay;
+    private android.widget.Button btnPlay;
     @NonNull
-    private Button btnPause;
+    private android.widget.Button btnPause;
     @NonNull
-    private Button btnReplay;
+    private android.widget.Button btnReplay;
     @NonNull
     private ProgressBar pbLoading;
     @NonNull
-    private Button btnNext;
+    private android.widget.Button btnNext;
     @NonNull
-    private Button btnPrev;
+    private android.widget.Button btnPrev;
     @NonNull
-    private Button btnForward10Sec;
+    private android.widget.Button btnForward10Sec;
     @NonNull
-    private Button btnBack10Sec;
+    private android.widget.Button btnBack10Sec;
     @NonNull
     private TextView tvTimeCurrent;
     @NonNull
@@ -66,11 +62,11 @@ public class CustomContentControls extends LinearLayout implements PlayerControl
     @NonNull
     private TextView tvSubtitles;
     @NonNull
-    private Button btnChooseTrack;
+    private android.widget.Button btnChooseTrack;
     @NonNull
-    private final LinkedList<TrackOptionVM> ccTracks = new LinkedList<>();
+    private final LinkedList<ViewModel.TrackOptionVM> ccTracks = new LinkedList<>();
     @NonNull
-    private final LinkedList<TrackOptionVM> audioTracks = new LinkedList<>();
+    private final LinkedList<ViewModel.TrackOptionVM> audioTracks = new LinkedList<>();
     @NonNull
     private final TrackChooserAdapter adapter = new TrackChooserAdapter();
     @Nullable
@@ -129,17 +125,17 @@ public class CustomContentControls extends LinearLayout implements PlayerControl
 
             if (listener == null) return;
 
-            if (v == btnPlay) listener.onButtonClick(ControlsButton.PLAY);
-            if (v == btnPause) listener.onButtonClick(ControlsButton.PAUSE);
-            if (v == btnReplay) listener.onButtonClick(ControlsButton.REPLAY);
-            if (v == btnNext) listener.onButtonClick(ControlsButton.NEXT);
-            if (v == btnPrev) listener.onButtonClick(ControlsButton.PREVIOUS);
-            if (v == btnForward10Sec) listener.onButtonClick(ControlsButton.SEEK_FORWARD);
-            if (v == btnBack10Sec) listener.onButtonClick(ControlsButton.SEEK_BACKWARD);
+            if (v == btnPlay) listener.onButtonClick(Button.PLAY);
+            if (v == btnPause) listener.onButtonClick(Button.PAUSE);
+            if (v == btnReplay) listener.onButtonClick(Button.REPLAY);
+            if (v == btnNext) listener.onButtonClick(Button.NEXT);
+            if (v == btnPrev) listener.onButtonClick(Button.PREVIOUS);
+            if (v == btnForward10Sec) listener.onButtonClick(Button.SEEK_FORWARD);
+            if (v == btnBack10Sec) listener.onButtonClick(Button.SEEK_BACKWARD);
             if (v == btnChooseTrack) {
                 adapter.updateData(getContext(), audioTracks, ccTracks);
                 dialog = new Dialog(getContext());
-                dialog.setContentView(new Button(getContext()));
+                dialog.setContentView(new android.widget.Button(getContext()));
                 dialog.show();
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -233,7 +229,7 @@ public class CustomContentControls extends LinearLayout implements PlayerControl
     }
 
     @Override
-    public void render(@NonNull PlayerControlsVM viewModel) {
+    public void render(@NonNull ViewModel viewModel) {
         llLiveIndicator.setVisibility(viewModel.isLiveIndicatorVisible ? VISIBLE : INVISIBLE);
         Drawable liveDot = llLiveIndicator.getChildAt(0).getBackground();
         if (viewModel.isOnLiveEdge) {
@@ -270,11 +266,5 @@ public class CustomContentControls extends LinearLayout implements PlayerControl
                 dialog = null;
             }
         }
-    }
-
-    @NonNull
-    @Override
-    public View getView() {
-        return this;
     }
 }

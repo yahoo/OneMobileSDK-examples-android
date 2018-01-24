@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.aol.mobile.sdk.controls.ImageLoader;
+import com.aol.mobile.sdk.controls.view.ContentControlsView;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
@@ -53,7 +54,7 @@ public class AutoplayOffActivity extends AppCompatActivity {
         if (playerView == null) {
             return;
         }
-        playerView.getContentControls().setImageLoader(new ImageLoader() {
+        ((ContentControlsView) playerView.getContentControls()).setImageLoader(new ImageLoader() {
             Context context = getApplicationContext();
 
             @Override

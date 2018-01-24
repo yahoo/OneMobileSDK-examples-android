@@ -42,12 +42,10 @@ public class ModifiedCcSapActivity extends AppCompatActivity {
                 .buildForVideo(Data.VIDEO_WITH_CC_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-                        if (playerFragment.getBinder().getPlayerView() != null) {
-                            playerFragment.getBinder().getPlayerView()
-                                    .setVideoControlsView(
-                                            new ModifiedCcSapControls(ModifiedCcSapActivity.this)
-                                    );
-                        }
+                        playerFragment.getPlayerView()
+                                .setContentControls(
+                                        new ModifiedCcSapControls(ModifiedCcSapActivity.this)
+                                );
                         playerFragment.getBinder().setPlayer(player);
                     }
 

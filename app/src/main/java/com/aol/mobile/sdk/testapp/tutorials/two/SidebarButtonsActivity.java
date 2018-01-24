@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.aol.mobile.sdk.controls.view.ContentControlsView;
 import com.aol.mobile.sdk.controls.view.SidePanel;
 import com.aol.mobile.sdk.controls.view.TintableImageButton;
 import com.aol.mobile.sdk.player.OneSDK;
@@ -45,9 +46,9 @@ public class SidebarButtonsActivity extends AppCompatActivity {
                 .buildForVideo(Data.VIDEO_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-                        addSideBarButtons(playerFragment.getPlayerView()
-                                .getContentControls()
-                                .getSidePanel());
+                        ContentControlsView contentControlsView = (ContentControlsView) playerFragment
+                                .getPlayerView().getContentControls();
+                        addSideBarButtons(contentControlsView.getSidePanel());
 
                         playerFragment.getBinder().setPlayer(player);
                     }
