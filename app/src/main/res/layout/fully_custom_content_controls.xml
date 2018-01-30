@@ -151,6 +151,12 @@
             android:text="cc"
             android:textColor="@android:color/white" />
 
+        <LinearLayout
+            android:id="@+id/cast_container"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:orientation="horizontal" />
+
         <Button
             android:id="@+id/btn_choose_track"
             android:layout_width="77dp"

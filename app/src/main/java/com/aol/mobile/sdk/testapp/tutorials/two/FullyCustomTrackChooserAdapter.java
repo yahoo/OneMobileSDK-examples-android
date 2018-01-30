@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.testapp;
+package com.aol.mobile.sdk.testapp.tutorials.two;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aol.mobile.sdk.controls.ContentControls;
-import com.aol.mobile.sdk.testapp.TrackChooserAdapter.Item.Type;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,15 +21,17 @@ import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static com.aol.mobile.sdk.controls.utils.ViewUtils.findView;
+import static com.aol.mobile.sdk.testapp.tutorials.two.FullyCustomTrackChooserAdapter.Item.Type.AUDIO;
+import static com.aol.mobile.sdk.testapp.tutorials.two.FullyCustomTrackChooserAdapter.Item.Type.CC;
 
-public class TrackChooserAdapter extends BaseAdapter {
+public class FullyCustomTrackChooserAdapter extends BaseAdapter {
     @NonNull
     private final List<Item> items = new ArrayList<>();
 
     public void updateData(@NonNull Context context, @NonNull LinkedList<ContentControls.ViewModel.TrackOptionVM> audioTracks,
                            @NonNull LinkedList<ContentControls.ViewModel.TrackOptionVM> ccTracks) {
         Resources resources = context.getResources();
-        int headerColor = resources.getColor(android.R.color.white);
+        int headerColor = resources.getColor(android.R.color.darker_gray);
         int trackColor = resources.getColor(android.R.color.black);
         Drawable selectedIcon = resources.getDrawable(android.R.drawable.ic_menu_send);
         Drawable closeIcon = resources.getDrawable(android.R.drawable.ic_menu_close_clear_cancel);
@@ -39,14 +40,14 @@ public class TrackChooserAdapter extends BaseAdapter {
         if (!audioTracks.isEmpty()) {
             items.add(new Item(headerColor, resources.getString(com.aol.mobile.sdk.controls.R.string.audio_tracks_title)));
             for (ContentControls.ViewModel.TrackOptionVM audioTrack : audioTracks) {
-                items.add(new Item(trackColor, audioTrack, selectedIcon, Type.AUDIO, audioTracks.indexOf(audioTrack)));
+                items.add(new Item(trackColor, audioTrack, selectedIcon, AUDIO, audioTracks.indexOf(audioTrack)));
             }
         }
 
         if (!ccTracks.isEmpty()) {
             items.add(new Item(headerColor, resources.getString(com.aol.mobile.sdk.controls.R.string.text_tracks_title)));
             for (ContentControls.ViewModel.TrackOptionVM ccTrack : ccTracks) {
-                items.add(new Item(trackColor, ccTrack, selectedIcon, Type.CC, ccTracks.indexOf(ccTrack)));
+                items.add(new Item(trackColor, ccTrack, selectedIcon, CC, ccTracks.indexOf(ccTrack)));
             }
         }
 
@@ -58,7 +59,7 @@ public class TrackChooserAdapter extends BaseAdapter {
     public void select(int index) {
         Item selectedItem = items.get(index);
 
-        if (selectedItem.type == Type.CC || selectedItem.type == Type.AUDIO) {
+        if (selectedItem.type == CC || selectedItem.type == AUDIO) {
             for (Item item : items) {
                 if (item.type == selectedItem.type) {
                     item.imageVisibility = item == selectedItem ? VISIBLE : INVISIBLE;

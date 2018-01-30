@@ -27,6 +27,8 @@ public class TutorialTwoActivity extends AppCompatActivity implements View.OnCli
         btnSidebarFullscreen.setOnClickListener(this);
         Button btnLiveIndicatorTint = findViewById(R.id.btn_live_indicator_tint);
         btnLiveIndicatorTint.setOnClickListener(this);
+        Button btnFullyCustomContentControls = findViewById(R.id.btn_fully_custom_content_controls);
+        btnFullyCustomContentControls.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +52,9 @@ public class TutorialTwoActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.btn_live_indicator_tint:
                 targetActivity = LiveIndicatorTintActivity.class;
+                break;
+            case R.id.btn_fully_custom_content_controls:
+                targetActivity = FullyCustomContentControlsActivity.class;
                 break;
             default:
                 return;

@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.testapp;
+package com.aol.mobile.sdk.testapp.tutorials.two;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -22,11 +22,13 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.aol.mobile.sdk.chromecast.OneCastManager;
 import com.aol.mobile.sdk.controls.ContentControls;
+import com.aol.mobile.sdk.testapp.R;
 
 import java.util.LinkedList;
 
-public class CustomContentControls extends LinearLayout implements ContentControls {
+public class FullyCustomContentControls extends LinearLayout implements ContentControls {
     @NonNull
     private LinearLayout llControlsRootContainer;
     @NonNull
@@ -64,20 +66,22 @@ public class CustomContentControls extends LinearLayout implements ContentContro
     @NonNull
     private android.widget.Button btnChooseTrack;
     @NonNull
+    private LinearLayout llCastContainer;
+    @NonNull
     private final LinkedList<ViewModel.TrackOptionVM> ccTracks = new LinkedList<>();
     @NonNull
     private final LinkedList<ViewModel.TrackOptionVM> audioTracks = new LinkedList<>();
     @NonNull
-    private final TrackChooserAdapter adapter = new TrackChooserAdapter();
+    private final FullyCustomTrackChooserAdapter adapter = new FullyCustomTrackChooserAdapter();
     @Nullable
     private Dialog dialog;
     @Nullable
     private Listener listener;
     private boolean isControlsVisible = true;
 
-    public CustomContentControls(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FullyCustomContentControls(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        inflate(getContext(), R.layout.custom_content_controls, this);
+        inflate(getContext(), R.layout.fully_custom_content_controls, this);
 
         llControlsRootContainer = findViewById(R.id.ll_controls_root_container);
         llControlsRootContainer.setOnClickListener(clickListener);
@@ -107,6 +111,9 @@ public class CustomContentControls extends LinearLayout implements ContentContro
         llTrackContainer = findViewById(R.id.ll_track_container);
         btnChooseTrack = findViewById(R.id.btn_choose_track);
         btnChooseTrack.setOnClickListener(clickListener);
+
+        llCastContainer = findViewById(R.id.cast_container);
+        llCastContainer.addView(OneCastManager.getCastButton(context));
     }
 
     @NonNull
@@ -141,7 +148,7 @@ public class CustomContentControls extends LinearLayout implements ContentContro
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-                        CustomContentControls.this.dialog = null;
+                        FullyCustomContentControls.this.dialog = null;
                     }
                 });
                 ListView listView = new ListView(getContext());
@@ -152,7 +159,7 @@ public class CustomContentControls extends LinearLayout implements ContentContro
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         adapter.select(position);
 
-                        TrackChooserAdapter.Item item = adapter.getItem(position);
+                        FullyCustomTrackChooserAdapter.Item item = adapter.getItem(position);
 
                         switch (item.type) {
                             case CC:
@@ -224,8 +231,25 @@ public class CustomContentControls extends LinearLayout implements ContentContro
     }
 
     @Override
-    public void setListener(@Nullable Listener listener) {
+    public void setListener(@Nullable final Listener listener) {
         this.listener = listener;
+
+        OneCastManager castManager = new OneCastManager();
+        castManager.addCastButtonListener(getContext(), new OneCastManager.CastButtonListener() {
+            @Override
+            public void enableCast() {
+                if (listener != null) {
+                    listener.onCastEnabled();
+                }
+            }
+
+            @Override
+            public void disableCast() {
+                if (listener != null) {
+                    listener.onCastDisabled();
+                }
+            }
+        });
     }
 
     @Override
