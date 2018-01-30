@@ -120,6 +120,14 @@
             android:label="@string/player_initialization_errors"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".tutorials.four.DeletedVideoActivity"
+            android:label="@string/deleted_video"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tutorials.four.InvalidVideoActivity"
+            android:label="@string/invalid_video"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".tutorials.four.RestrictedVideoActivity"
             android:label="@string/restricted_video"
             android:screenOrientation="portrait" />

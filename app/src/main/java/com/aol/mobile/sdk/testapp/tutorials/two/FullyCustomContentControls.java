@@ -279,6 +279,7 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         tvSubtitles.setVisibility(viewModel.isSubtitlesTextVisible ? VISIBLE : INVISIBLE);
         btnChooseTrack.setVisibility(viewModel.isTrackChooserButtonVisible ? VISIBLE : INVISIBLE);
         btnChooseTrack.setEnabled(viewModel.isTrackChooserButtonEnabled);
+        llCastContainer.setVisibility(viewModel.isCastButtonVisible ? VISIBLE : INVISIBLE);
 
         this.audioTracks.clear();
         this.audioTracks.addAll(viewModel.audioTracks);

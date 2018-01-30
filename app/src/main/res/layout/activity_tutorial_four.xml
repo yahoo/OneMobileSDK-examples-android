@@ -20,7 +20,19 @@
         android:text="@string/player_initialization_errors" />
 
     <Button
-        android:id="@+id/btn_restricted_videos"
+        android:id="@+id/btn_deleted_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deleted_video" />
+
+    <Button
+        android:id="@+id/btn_invalid_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/invalid_video" />
+
+    <Button
+        android:id="@+id/btn_restricted_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/restricted_video" />
