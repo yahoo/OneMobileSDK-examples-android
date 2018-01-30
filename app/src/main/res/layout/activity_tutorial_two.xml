@@ -43,4 +43,10 @@
         android:layout_height="wrap_content"
         android:text="@string/live_indicator_tint" />
 
+    <Button
+        android:id="@+id/btn_fully_custom_content_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fully_custom_content_controls" />
+
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.aol.mobile.sdk.testapp;
+package com.aol.mobile.sdk.testapp.tutorials.two;
 
 
 import android.app.FragmentManager;
@@ -11,14 +11,14 @@ import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
+import com.aol.mobile.sdk.testapp.Data;
+import com.aol.mobile.sdk.testapp.R;
 
-public class MainActivity extends AppCompatActivity {
-    public static final String VIDEO_ID = "59397934955a316f1c4f65b4";
-
+public class FullyCustomContentControlsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_player_fragment);
 
         FragmentManager fm = getFragmentManager();
         final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
                 .setAutoplay(true)
-                .buildForVideo(VIDEO_ID, new Player.Callback() {
+                .buildForVideo(Data.VIDEO_WITH_CC_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
                         playerFragment.getPlayerView()
-                                .setContentControls(new CustomContentControls(MainActivity.this, null, 0));
+                                .setContentControls(new FullyCustomContentControls(FullyCustomContentControlsActivity.this, null, 0));
                         playerFragment.getBinder().setPlayer(player);
                     }
 

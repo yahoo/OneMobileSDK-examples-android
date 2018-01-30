@@ -79,6 +79,11 @@
             android:label="@string/live_indicator_tint"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".tutorials.two.FullyCustomContentControlsActivity"
+            android:label="@string/fully_custom_content_controls"
+            android:screenOrientation="portrait" />
+
 
         <activity
             android:name=".tutorials.three.TutorialThreeActivity"

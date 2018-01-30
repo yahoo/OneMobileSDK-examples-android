@@ -1,6 +1,5 @@
 include ':Resources'
 include ':app'
-include ':ControlsCustomContentControls'
 include ':ContentOverrideMetadata'
 include ':PlayerSaveState'
 include ':PlaylistInRecyclerView'
