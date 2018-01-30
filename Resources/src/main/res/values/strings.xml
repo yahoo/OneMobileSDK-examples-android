@@ -32,6 +32,8 @@
     <string name="tutorial_4">Tutorial 4 – Error Handling</string>
     <string name="sdk_initialization_errors">SDK Initialization Errors</string>
     <string name="player_initialization_errors">Player Initialization Errors</string>
+    <string name="deleted_video">Deleted Video</string>
+    <string name="invalid_video">Invalid Video</string>
     <string name="restricted_video">Restricted Video</string>
 
     <string name="tutorial_5">Tutorial 5 – Support for TV Consoles</string>

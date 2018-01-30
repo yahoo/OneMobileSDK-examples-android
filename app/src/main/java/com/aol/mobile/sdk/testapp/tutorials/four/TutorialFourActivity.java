@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.aol.mobile.sdk.testapp.R;
-import com.aol.mobile.sdk.testapp.tutorials.three.CurrentStateActivity;
-import com.aol.mobile.sdk.testapp.tutorials.three.LoopPlaybackActivity;
-import com.aol.mobile.sdk.testapp.tutorials.three.PauseSeekPlayActivity;
 
 public class TutorialFourActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,8 +20,12 @@ public class TutorialFourActivity extends AppCompatActivity implements View.OnCl
         btnSDKInitializationErrors.setOnClickListener(this);
         Button btnPlayerInitializationErrors = findViewById(R.id.btn_player_initialization_errors);
         btnPlayerInitializationErrors.setOnClickListener(this);
-        Button btnRestrictedVideos = findViewById(R.id.btn_restricted_videos);
-        btnRestrictedVideos.setOnClickListener(this);
+        Button btnDeletedVideo = findViewById(R.id.btn_deleted_video);
+        btnDeletedVideo.setOnClickListener(this);
+        Button btnInvalidVideo = findViewById(R.id.btn_invalid_video);
+        btnInvalidVideo.setOnClickListener(this);
+        Button btnRestrictedVideo = findViewById(R.id.btn_restricted_video);
+        btnRestrictedVideo.setOnClickListener(this);
     }
 
     @Override
@@ -37,7 +38,13 @@ public class TutorialFourActivity extends AppCompatActivity implements View.OnCl
             case R.id.btn_player_initialization_errors:
                 targetActivity = PlayerErrorsActivity.class;
                 break;
-            case R.id.btn_restricted_videos:
+            case R.id.btn_deleted_video:
+                targetActivity = DeletedVideoActivity.class;
+                break;
+            case R.id.btn_invalid_video:
+                targetActivity = InvalidVideoActivity.class;
+                break;
+            case R.id.btn_restricted_video:
                 targetActivity = RestrictedVideoActivity.class;
                 break;
             default:
