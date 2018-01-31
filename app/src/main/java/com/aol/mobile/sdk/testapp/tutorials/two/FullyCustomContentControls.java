@@ -36,7 +36,7 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @NonNull
     private FrameLayout flButtonsContainer;
     @NonNull
-    private LinearLayout llTrackContainer;
+    private LinearLayout llTracksAndCastContainer;
     @NonNull
     private android.widget.Button btnPlay;
     @NonNull
@@ -108,11 +108,10 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         tvTitle = findViewById(R.id.tv_title);
         tvTimeLeft = findViewById(R.id.tv_time_left);
         tvSubtitles = findViewById(R.id.tv_subtitles);
-        llTrackContainer = findViewById(R.id.ll_track_container);
+        llTracksAndCastContainer = findViewById(R.id.ll_tracks_and_cast_container);
         btnChooseTrack = findViewById(R.id.btn_choose_track);
         btnChooseTrack.setOnClickListener(clickListener);
-
-        llCastContainer = findViewById(R.id.cast_container);
+        llCastContainer = findViewById(R.id.ll_cast_container);
         llCastContainer.addView(OneCastManager.getCastButton(context));
     }
 
@@ -183,7 +182,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
                 window.getAttributes().windowAnimations = R.style.TracksDialogAnimation;
                 window.getAttributes().gravity = Gravity.BOTTOM | Gravity.FILL_HORIZONTAL;
                 window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
             }
         }
     };
@@ -218,7 +216,7 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         sbSeekBar.setVisibility(VISIBLE);
         tvTitle.setVisibility(VISIBLE);
         tvTimeLeft.setVisibility(VISIBLE);
-        llTrackContainer.setVisibility(VISIBLE);
+        llTracksAndCastContainer.setVisibility(VISIBLE);
     }
 
     private void hideControls() {
@@ -227,15 +225,14 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         sbSeekBar.setVisibility(INVISIBLE);
         tvTitle.setVisibility(INVISIBLE);
         tvTimeLeft.setVisibility(INVISIBLE);
-        llTrackContainer.setVisibility(INVISIBLE);
+        llTracksAndCastContainer.setVisibility(INVISIBLE);
     }
 
     @Override
     public void setListener(@Nullable final Listener listener) {
         this.listener = listener;
 
-        OneCastManager castManager = new OneCastManager();
-        castManager.addCastButtonListener(getContext(), new OneCastManager.CastButtonListener() {
+        new OneCastManager().addCastButtonListener(getContext(), new OneCastManager.CastButtonListener() {
             @Override
             public void enableCast() {
                 if (listener != null) {
@@ -270,6 +267,8 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         btnNext.setEnabled(viewModel.isNextButtonEnabled);
         btnPrev.setVisibility(viewModel.isPrevButtonVisible ? VISIBLE : INVISIBLE);
         btnPrev.setEnabled(viewModel.isPrevButtonEnabled);
+        btnForward10Sec.setVisibility(viewModel.isSeekForwardButtonVisible ? VISIBLE : INVISIBLE);
+        btnBack10Sec.setVisibility(viewModel.isSeekBackButtonVisible ? VISIBLE : INVISIBLE);
         tvTimeCurrent.setText(viewModel.seekerCurrentTimeText);
         sbSeekBar.setMax(viewModel.seekerMaxValue);
         sbSeekBar.setProgress((int) Math.round(viewModel.seekerMaxValue * viewModel.seekerProgress));
