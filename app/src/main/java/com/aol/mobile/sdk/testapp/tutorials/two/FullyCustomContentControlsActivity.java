@@ -40,7 +40,7 @@ public class FullyCustomContentControlsActivity extends AppCompatActivity {
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
                 .setAutoplay(true)
-                .buildForVideo(Data.VIDEO_WITH_CC_ID, new Player.Callback() {
+                .buildForVideoList(new String[]{Data.VIDEO_ID, Data.VIDEO_WITH_CC_ID, Data.LIVE_VIDEO_ID}, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
                         playerFragment.getPlayerView()
