@@ -10,9 +10,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:label">
 
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,125 +20,120 @@
 
         <activity
             android:name=".tutorials.one.TutorialOneActivity"
-            android:label="@string/tutorial_1"
-            android:screenOrientation="portrait" />
+            android:label="@string/tutorial_1" />
         <activity
             android:name=".tutorials.one.PlayVideoActivity"
-            android:label="@string/play_video"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/play_video" />
         <activity
             android:name=".tutorials.one.PlayArrayActivity"
-            android:label="@string/play_array"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/play_array" />
         <activity
             android:name=".tutorials.one.PlayPlaylistActivity"
-            android:label="@string/play_playlist"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/play_playlist" />
         <activity
             android:name=".tutorials.one.SetTintColorActivity"
-            android:label="@string/set_tint_color"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/set_tint_color" />
         <activity
             android:name=".tutorials.one.AutoplayOffActivity"
-            android:label="@string/autoplay_off"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/autoplay_off" />
         <activity
             android:name=".tutorials.one.PlayMutedActivity"
-            android:label="@string/play_muted"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/play_muted" />
 
 
         <activity
             android:name=".tutorials.two.TutorialTwoActivity"
-            android:label="@string/tutorial_2"
-            android:screenOrientation="portrait" />
+            android:label="@string/tutorial_2" />
         <activity
             android:name=".tutorials.two.HiddenButtonsControlsActivity"
-            android:label="@string/hidden_buttons_controls"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/hidden_buttons_controls" />
         <activity
             android:name=".tutorials.two.ModifiedCcSapActivity"
-            android:label="@string/cc_sap_settings"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/cc_sap_settings" />
         <activity
             android:name=".tutorials.two.SidebarButtonsActivity"
-            android:label="@string/sidebar_buttons"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/sidebar_buttons" />
         <activity
             android:name=".tutorials.two.SidebarVolumeActivity"
-            android:label="@string/sidebar_volume"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/sidebar_volume" />
         <activity
             android:name=".tutorials.two.SidebarFullscreenActivity"
-            android:label="@string/sidebar_fullscreen"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/sidebar_fullscreen" />
         <activity
             android:name=".tutorials.two.LiveIndicatorTintActivity"
-            android:label="@string/live_indicator_tint"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/live_indicator_tint" />
 
         <activity
             android:name=".tutorials.two.FullyCustomContentControlsActivity"
-            android:label="@string/fully_custom_content_controls"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/fully_custom_content_controls" />
 
 
         <activity
             android:name=".tutorials.three.TutorialThreeActivity"
-            android:label="@string/tutorial_3"
-            android:screenOrientation="portrait" />
+            android:label="@string/tutorial_3" />
         <activity
             android:name=".tutorials.three.CurrentStateActivity"
-            android:label="@string/current_state"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/current_state" />
         <activity
             android:name=".tutorials.three.PauseSeekPlayActivity"
-            android:label="@string/pause_seek_play"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/pause_seek_play" />
         <activity
             android:name=".tutorials.three.LoopPlaybackActivity"
-            android:label="@string/loop_playback"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/loop_playback" />
         <activity
             android:name=".tutorials.three.InspectVideoTypeActivity"
-            android:label="@string/inspect_video_type"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/inspect_video_type" />
 
 
         <activity
             android:name=".tutorials.four.TutorialFourActivity"
-            android:label="@string/tutorial_4"
-            android:screenOrientation="portrait" />
+            android:label="@string/tutorial_4" />
         <activity
             android:name=".tutorials.four.SDKErrorsActivity"
-            android:label="@string/sdk_initialization_errors"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/sdk_initialization_errors" />
         <activity
             android:name=".tutorials.four.PlayerErrorsActivity"
-            android:label="@string/player_initialization_errors"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/player_initialization_errors" />
         <activity
             android:name=".tutorials.four.DeletedVideoActivity"
-            android:label="@string/deleted_video"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/deleted_video" />
         <activity
             android:name=".tutorials.four.InvalidVideoActivity"
-            android:label="@string/invalid_video"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/invalid_video" />
         <activity
             android:name=".tutorials.four.RestrictedVideoActivity"
-            android:label="@string/restricted_video"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/restricted_video" />
 
 
         <activity
             android:name=".tutorials.five.TutorialFiveActivity"
-            android:label="@string/tutorial_5"
-            android:screenOrientation="portrait" />
+            android:label="@string/tutorial_5" />
         <activity
             android:name=".tutorials.five.ChromecastSupportActivity"
-            android:label="@string/chromecast_support"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize"
+            android:label="@string/chromecast_support" />
 
 
         <meta-data
