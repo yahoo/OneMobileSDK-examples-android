@@ -18,6 +18,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
-        android:text="Not Fullscreen" />
+        android:text="Sidebar Fullscreen Button" />
 
 </RelativeLayout>

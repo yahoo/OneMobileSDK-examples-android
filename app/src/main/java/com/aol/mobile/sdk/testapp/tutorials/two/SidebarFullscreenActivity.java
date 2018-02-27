@@ -2,6 +2,7 @@ package com.aol.mobile.sdk.testapp.tutorials.two;
 
 import android.animation.ValueAnimator;
 import android.app.FragmentManager;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -31,6 +32,7 @@ public class SidebarFullscreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_fragment_for_fullscreen);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
 
         FragmentManager fm = getFragmentManager();
         playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
@@ -78,13 +80,11 @@ public class SidebarFullscreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final RelativeLayout.LayoutParams curLayoutParams = (RelativeLayout.LayoutParams) playerFragment.getPlayerView().getLayoutParams();
                 if (isFullscreenActive) {
-                    getSupportActionBar().show();
                     animateFromFullscreen(curLayoutParams);
 
                     fullscreenButton.setActivated(false);
                     isFullscreenActive = false;
                 } else {
-                    getSupportActionBar().hide();
                     animateToFullscreen(curLayoutParams);
 
                     fullscreenButton.setActivated(true);
@@ -110,9 +110,9 @@ public class SidebarFullscreenActivity extends AppCompatActivity {
     }
 
     private void animateToFullscreen(final RelativeLayout.LayoutParams curLayoutParams) {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(curLayoutParams.height, fragmentParent.getHeight() + getSupportActionBar().getHeight());
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(curLayoutParams.height, fragmentParent.getHeight());
         valueAnimator.setDuration(300);
-        valueAnimator.setStartDelay(300);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -124,8 +124,9 @@ public class SidebarFullscreenActivity extends AppCompatActivity {
     }
 
     private void animateFromFullscreen(RelativeLayout.LayoutParams curLayoutParams) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
         ValueAnimator valueAnimator = ValueAnimator.ofInt(curLayoutParams.height, ogLayoutParams.height);
-        valueAnimator.setDuration(600);
+        valueAnimator.setDuration(300);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
