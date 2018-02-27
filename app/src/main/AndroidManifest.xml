@@ -69,7 +69,8 @@
         <activity
             android:name=".tutorials.two.SidebarFullscreenActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/sidebar_fullscreen" />
+            android:label="@string/sidebar_fullscreen"
+            android:theme="@style/NoActionBarAppTheme" />
         <activity
             android:name=".tutorials.two.LiveIndicatorTintActivity"
             android:configChanges="orientation|screenSize"
