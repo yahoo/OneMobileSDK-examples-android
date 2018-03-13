@@ -26,7 +26,8 @@
             android:layout_marginStart="6dp"
             android:text="live"
             android:textColor="@android:color/white"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <Space
@@ -45,21 +46,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="play" />
+            android:text="play"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="pause" />
+            android:text="pause"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_replay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="replay" />
+            android:text="replay"
+            tools:ignore="HardcodedText" />
 
         <ProgressBar
             android:id="@+id/pb_loading"
@@ -71,29 +75,33 @@
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:text="next" />
+            android:layout_gravity="bottom|end"
+            android:text="next"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:text="prev" />
+            android:layout_gravity="bottom|start"
+            android:text="prev"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_forward_10_sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="10 s =&gt;" />
+            android:layout_gravity="end"
+            android:text="10 s =&gt;"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_back_10_sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="&lt;= 10 s" />
+            android:layout_gravity="start"
+            android:text="&lt;= 10 s"
+            tools:ignore="HardcodedText" />
     </FrameLayout>
 
     <Space
@@ -106,7 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00:00"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        tools:ignore="HardcodedText" />
 
     <SeekBar
         android:id="@+id/sb_seek_bar"
@@ -126,14 +135,16 @@
             android:layout_weight="1"
             android:maxLines="1"
             android:text="title"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tv_time_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00:00"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <LinearLayout
@@ -149,7 +160,8 @@
             android:layout_weight="1"
             android:maxLines="3"
             android:text="cc"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
 
         <LinearLayout
             android:id="@+id/ll_cast_container"
@@ -162,7 +174,8 @@
             android:layout_width="77dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="cc/sap" />
+            android:text="cc/sap"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
 </LinearLayout>

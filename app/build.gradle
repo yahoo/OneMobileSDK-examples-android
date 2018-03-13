@@ -5,11 +5,15 @@ android {
     buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "com.aol.mobile.sdk.testapp"
+        applicationId 'com.aol.mobile.sdk.testapp'
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
+    }
+
+    lintOptions {
+        disable 'GradleCompatible'
     }
 }
 
