@@ -1,5 +1,5 @@
 <a name="head"></a>
-# O2 Mobile SDK Tutorial - for Android
+# O2 Mobile SDK Tutorial - for Android [![Build Status](https://travis-ci.org/aol-public/OneMobileSDK-examples-android.svg?branch=master)](https://travis-ci.org/aol-public/OneMobileSDK-examples-android)
 
 Welcome to the O2 Mobile SDK (OMSDK or SDK). The purpose of this document is to provide you with everything you need to know to get started with and use the O2 Mobile SDK. The audience for this document is an experienced Android Developer with in-depth knowledge of using Android Studio, the Java Programming Language, Android OS API programming, and Gradle build system.
 
