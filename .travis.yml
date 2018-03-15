@@ -1,16 +1,23 @@
 language: android
-
+env:
+  global:
+    - ANDROID_TARGET=27
+    - ANDROID_EMULATOR_TARGET=22
+    - ANDROID_BUILD_TOOLS_VERSION=27.0.3
+    - ANDROID_ABI=armeabi-v7a
 before_install:
-    - yes | sdkmanager "platforms;android-27"
-
+  - yes | sdkmanager "platforms;android-$ANDROID_TARGET"
 android:
   components:
     - tools
     - platform-tools
     - tools
-
-    - build-tools-27.0.3
-
-    - android-27
-
-script: ./gradlew clean build
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_TARGET
+    - android-$ANDROID_EMULATOR_TARGET
+    - sys-img-armeabi-v7a-android-$ANDROID_EMULATOR_TARGET
+script:
+  - echo no | android create avd --force -n test -t android-$ANDROID_EMULATOR_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - adb wait-for-device
+  - adb shell input keyevent 82 &
