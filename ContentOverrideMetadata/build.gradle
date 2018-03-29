@@ -1,7 +1,0 @@
-apply from: '../androidApp.gradle'
-
-dependencies {
-    implementation ONE_MOBILE_SDK
-    implementation APP_COMPAT
-    implementation RESOURCES
-}

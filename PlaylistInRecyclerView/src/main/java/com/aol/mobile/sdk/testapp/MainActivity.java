@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        playerAdapter = new PlayerAdapter();
+        playerAdapter = new PlayerAdapter(getApplicationContext());
         recyclerView.setAdapter(playerAdapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {

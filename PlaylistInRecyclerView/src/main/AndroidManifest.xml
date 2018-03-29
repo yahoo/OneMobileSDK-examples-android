@@ -4,6 +4,7 @@
     package="com.aol.mobile.sdk.testapp">
 
     <application
+        android:name=".ExampleApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Playlist In Recycler View"
