@@ -1,16 +1,26 @@
 package com.aol.mobile.sdk.testapp;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.aol.mobile.sdk.controls.ImageLoader;
+import com.aol.mobile.sdk.controls.view.SidePanel;
 import com.aol.mobile.sdk.player.Binder;
 import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.view.PlayerView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +30,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     private List<Binder> binders = new ArrayList<>();
     private List<String> videoIds;
     private OneSDK oneSDK;
+    private Context context;
+    private boolean isFullscreenActive;
+
+    public PlayerAdapter(Context context) {
+        this.context = context;
+    }
 
     @Override
     public PlayerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -103,12 +119,69 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
             super(itemView);
             textViewPosition = itemView.findViewById(R.id.item_tv_position);
             playerView = itemView.findViewById(R.id.item_playerview);
+            playerView.getContentControls().setImageLoader(new ImageLoader() {
+                @Override
+                public void load(@Nullable String url, @NonNull ImageView imageView) {
+                    Picasso.with(context).load(url).into(imageView);
+                }
+
+                @Override
+                public void cancelLoad(@NonNull ImageView imageView) {
+                    Picasso.with(context).cancelRequest(imageView);
+                }
+            });
+            addSideBarButton(playerView.getContentControls().getSidePanel(), playerView);
         }
     }
 
     @Override
-    public void onViewRecycled(PlayerHolder holder) {
+    public void onViewRecycled(@NonNull PlayerHolder holder) {
         super.onViewRecycled(holder);
+    }
+
+
+    private void addSideBarButton(@NonNull SidePanel sidePanel, final PlayerView playerView) {
+        final ImageButton fullscreenButton = makeFullscreenButton();
+        fullscreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final LinearLayout.LayoutParams curLayoutParams = (LinearLayout.LayoutParams) playerView.getLayoutParams();
+                if (isFullscreenActive) {
+                    animateFromFullscreen(curLayoutParams);
+
+                    fullscreenButton.setActivated(false);
+                    isFullscreenActive = false;
+                } else {
+                    animateToFullscreen(curLayoutParams);
+
+                    fullscreenButton.setActivated(true);
+                    isFullscreenActive = true;
+                }
+            }
+        });
+
+        sidePanel.addView(fullscreenButton);
+        sidePanel.show();
+    }
+
+    private ImageButton makeFullscreenButton() {
+        ImageButton button = new ImageButton(context);
+        button.setBackground(ContextCompat.getDrawable(context, R.drawable.selector_btn_fullscreen));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(112, 112);
+        layoutParams.setMargins(5, 5, 5, 5);
+        button.setLayoutParams(layoutParams);
+        button.setPadding(0, 0, 0, 0);
+        button.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+        return button;
+    }
+
+    private void animateToFullscreen(final LinearLayout.LayoutParams curLayoutParams) {
+
+    }
+
+    private void animateFromFullscreen(LinearLayout.LayoutParams curLayoutParams) {
+
     }
 
     public void bindersOnResume() {

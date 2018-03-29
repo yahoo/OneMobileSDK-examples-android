@@ -1,8 +1,15 @@
 apply from: '../androidApp.gradle'
 
 dependencies {
-    implementation ONE_MOBILE_SDK
+    compile('com.aol.one.publishers.android:sdk:2.17') {
+        exclude group: "com.aol.one.publishers.android", module: "controls"
+        exclude group: "com.google.android.gms"
+        exclude group: "com.squareup.duktape"
+    }
+    compile 'com.aol.one.publishers.android:controls-lw:1.1'
+
     implementation APP_COMPAT
     implementation RESOURCES
     implementation RECYCLERVIEW
+    implementation PICASSO
 }

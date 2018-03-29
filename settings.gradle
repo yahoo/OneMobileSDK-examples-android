@@ -1,5 +1,2 @@
-include ':Resources'
-include ':app'
-include ':ContentOverrideMetadata'
-include ':PlayerSaveState'
 include ':PlaylistInRecyclerView'
+include ':Resources'
