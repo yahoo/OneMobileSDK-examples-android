@@ -137,12 +137,5 @@
             android:name=".tutorials.five.ChromecastSupportActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/chromecast_support" />
-
-
-        <meta-data
-            android:name="com.aol.mobile.sdk.chromecast.ReceiverApplicationId"
-            android:value="F53593E4" />
-
     </application>
-
 </manifest>

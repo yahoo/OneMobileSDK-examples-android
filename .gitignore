@@ -1,6 +1,5 @@
 # application files
-/*/build/
-/build/
+build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -14,6 +13,3 @@ local.properties
 
 # OS-specific files
 .DS_Store
-.DS_Store?
-._*
-

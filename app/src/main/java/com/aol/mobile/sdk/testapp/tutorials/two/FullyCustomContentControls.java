@@ -23,6 +23,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.aol.mobile.sdk.chromecast.OneCastManager;
+import com.aol.mobile.sdk.chromecast.OneCastManager.CastListener;
 import com.aol.mobile.sdk.controls.ContentControls;
 import com.aol.mobile.sdk.testapp.R;
 
@@ -62,8 +63,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @NonNull
     private TextView tvTimeLeft;
     @NonNull
-    private TextView tvSubtitles;
-    @NonNull
     private android.widget.Button btnChooseTrack;
     @NonNull
     private LinearLayout llCastContainer;
@@ -78,6 +77,8 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @Nullable
     private Listener listener;
     private boolean isControlsVisible = true;
+    @NonNull
+    private OneCastManager oneCastManager;
 
     public FullyCustomContentControls(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -107,12 +108,13 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         sbSeekBar.setOnSeekBarChangeListener(seekBarListener);
         tvTitle = findViewById(R.id.tv_title);
         tvTimeLeft = findViewById(R.id.tv_time_left);
-        tvSubtitles = findViewById(R.id.tv_subtitles);
         llTracksAndCastContainer = findViewById(R.id.ll_tracks_and_cast_container);
         btnChooseTrack = findViewById(R.id.btn_choose_track);
         btnChooseTrack.setOnClickListener(clickListener);
         llCastContainer = findViewById(R.id.ll_cast_container);
-        llCastContainer.addView(OneCastManager.getCastButton(context));
+
+        oneCastManager = new OneCastManager(context);
+        llCastContainer.addView(oneCastManager.constructCastButton());
     }
 
     @NonNull
@@ -232,7 +234,7 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     public void setListener(@Nullable final Listener listener) {
         this.listener = listener;
 
-        new OneCastManager().addCastButtonListener(getContext(), new OneCastManager.CastButtonListener() {
+        oneCastManager.setCastListener(new CastListener() {
             @Override
             public void enableCast() {
                 if (listener != null) {
@@ -274,8 +276,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         sbSeekBar.setProgress((int) Math.round(viewModel.seekerMaxValue * viewModel.seekerProgress));
         tvTitle.setText(viewModel.titleText);
         tvTimeLeft.setText(viewModel.seekerTimeLeftText);
-        tvSubtitles.setText(viewModel.subtitlesText);
-        tvSubtitles.setVisibility(viewModel.isSubtitlesTextVisible ? VISIBLE : INVISIBLE);
         btnChooseTrack.setVisibility(viewModel.isTrackChooserButtonVisible ? VISIBLE : INVISIBLE);
         btnChooseTrack.setEnabled(viewModel.isTrackChooserButtonEnabled);
         llCastContainer.setVisibility(viewModel.isCastButtonVisible ? VISIBLE : INVISIBLE);

@@ -153,15 +153,10 @@
         android:layout_height="36dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_subtitles"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:maxLines="3"
-            android:text="cc"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:id="@+id/ll_cast_container"
@@ -177,5 +172,4 @@
             android:text="cc/sap"
             tools:ignore="HardcodedText" />
     </LinearLayout>
-
 </LinearLayout>
