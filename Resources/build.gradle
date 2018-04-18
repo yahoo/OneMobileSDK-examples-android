@@ -13,5 +13,5 @@ android {
 }
 
 dependencies {
-    compile APP_COMPAT
+    implementation APP_COMPAT
 }
