@@ -28,7 +28,7 @@ ext {
     RECYCLERVIEW = "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VERSION"
     PICASSO = 'com.squareup.picasso:picasso:2.5.2'
 
-    ONE_MOBILE_SDK = 'com.aol.one.publishers.android:sdk:2.20'
+    ONE_MOBILE_SDK = 'com.aol.one.publishers.android:sdk:2.21'
     ONE_MOBILE_CHROMECAST = 'com.aol.one.publishers.android:chromecast:1.8'
 
     RESOURCES = project(':Resources')
