@@ -14,3 +14,5 @@ The purpose of this demo application is to provide you with a fully functioning 
 
 <a name="build"></a>
 ## Build Notes
+
+Open the directory in Android Studio, build and run.  That's it!
