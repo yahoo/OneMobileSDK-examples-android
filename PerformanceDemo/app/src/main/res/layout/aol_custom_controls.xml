@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/thumbnail_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="fitCenter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_controls_root_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#20000000"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:textColor="@color/AolTextColor"
+            android:textSize="15sp"/>
+
+        <FrameLayout
+            android:id="@+id/fl_buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_replay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/volume"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/aol_volume"
+                android:textColor="@color/AolTextColor"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_time_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/volume"
+                android:gravity="center"
+                android:textColor="@color/AolTextColor"/>
+
+            <SeekBar
+                android:id="@+id/sb_seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tv_time_left"
+                android:layout_toRightOf="@id/tv_time_current"
+                android:maxHeight="1dp"
+                android:progressDrawable="@drawable/aol_seekbar_bg"
+                android:thumb="@drawable/aol_seekbar_thumb"/>
+
+            <TextView
+                android:id="@+id/tv_time_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/full_screen"
+                android:gravity="center"
+                android:textColor="@color/AolTextColor"/>
+
+            <TextView
+                android:id="@+id/full_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/aol_fullscreen"
+                android:gravity="center"
+                android:textColor="@color/AolTextColor"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        style="@style/AolCustomProgressStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"/>
+</FrameLayout>

@@ -1,0 +1,29 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = '1.2.60'
+        support_version = '27.1.1'
+        exo_version = '2.7.3'
+    }
+    repositories {
+        jcenter()
+        google()
+        maven { url 'https://raw.github.com/aol-public/OneMobileSDK-releases-android/maven/' }
+    }
+    dependencies {
+        classpath "com.aol.one.publishers.android:api-tracker-plugin:1.4-SNAPSHOT"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        maven { url 'https://raw.github.com/aol-public/OneMobileSDK-releases-android/maven/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
