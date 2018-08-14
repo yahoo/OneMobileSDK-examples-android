@@ -58,7 +58,7 @@ public class ControlsBehavior implements Middleware {
             renderViewModelToControls();
 
             Player player = binder.getPlayer();
-            if (player != null) {
+            if (player != null && (binder.getPlayer().getProperties().camera.longitude == 1 || !binder.getPlayer().getProperties().isPlaybackStarted)) {
                 VideoProperties video = player.getProperties().playlistItem.video;
                 if (video != null && video.isFinished) {
                     player.replay();
@@ -68,7 +68,7 @@ public class ControlsBehavior implements Middleware {
             }
         };
 
-        extraVM.onControlsClickAction = __ -> scheduleControlsHide();
+        //extraVM.onControlsClickAction = __ -> scheduleControlsHide();
     }
 
     private void scheduleControlsHide() {
@@ -138,11 +138,7 @@ public class ControlsBehavior implements Middleware {
             controlsVM.thumbnailImageUrl = getBestFitThumbnail(video.model.thumbnails, props.viewport.width, props.viewport.height);
         }
 
-        boolean isSeeking = video != null && video.isSeeking;
-        boolean isPlaying = video != null && video.isPlaying;
-        boolean isBuffering = video != null && video.isBuffering;
-        boolean hasAd = props.viewState == Properties.ViewState.Ad;
-        controlsVM.isSeekerVisible = isPlaying || isSeeking || (isBuffering && !hasAd);
+        controlsVM.isSeekerVisible = controlsVM.isSeekerVisible && controlsVM.compassLongitude != 1;
 
         if (!controlsVM.isSeekerVisible) {
             controlsVM.seekerCurrentTimeText = null;
@@ -153,6 +149,18 @@ public class ControlsBehavior implements Middleware {
         extraVM.isMuted = props.isMuted;
         extraVM.isFullscreenButtonVisible = controlsVM.isSeekerVisible;
         extraVM.isMuteButtonVisible = controlsVM.isSeekerVisible;
+
+        if (binder != null && binder.getPlayer() != null) {
+            if (props.shouldPlay && binder.getPlayer().getProperties().camera.longitude == 1) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (binder == null || binder.getPlayer() == null) return;
+                        binder.getPlayer().setCameraDirection(0, 0);
+                    }
+                });
+            }
+        }
 
         renderViewModelToControls();
     }

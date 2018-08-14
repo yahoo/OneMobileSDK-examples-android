@@ -47,7 +47,10 @@ public class SinglePlaybackRestriction implements Middleware {
                     } else {
                         restriction.setBufferingRestricted(true);
                         Player player = binder.getPlayer();
-                        if (player != null) player.pause();
+                        if (player != null) {
+                            player.pause();
+                            player.setCameraDirection(1,0);
+                        }
                     }
                 }
             }
