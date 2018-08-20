@@ -24,8 +24,6 @@ import com.aol.mobile.sdk.testapp.aol.adapter.AolRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
-
 @SuppressLint("ValidFragment")
 public class AolFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -76,19 +74,21 @@ public class AolFragment extends Fragment {
         layoutInflater.inflate(R.layout.fragment_aol, container, (view, resId, parent) -> {
             LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
 
-            aolPlayerAdapter = new AolRecyclerViewAdapter(oneSDK, (isInFullscreen) -> {
-                if (isInFullscreen) {
-                    screenOrientation = activity.getRequestedOrientation();
-
-                    recyclerView.postDelayed(() ->
-                            activity.setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE), 300);
-                } else {
-                    recyclerView.postDelayed(() -> {
-                        if (screenOrientation != null) {
-                            activity.setRequestedOrientation(screenOrientation);
-                        }
-                    }, 300);
-                }
+//            FullscreenController.Listener listener = (isInFullscreen) -> {
+//                if (isInFullscreen) {
+//                    screenOrientation = activity.getRequestedOrientation();
+//
+//                    recyclerView.postDelayed(() ->
+//                            activity.setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE), 300);
+//                } else {
+//                    recyclerView.postDelayed(() -> {
+//                        if (screenOrientation != null) {
+//                            activity.setRequestedOrientation(screenOrientation);
+//                        }
+//                    }, 300);
+//                }
+//            };
+            aolPlayerAdapter = new AolRecyclerViewAdapter(oneSDK, isInFullscreen -> {
             }, layoutInflater);
             aolPlayerAdapter.setActive(getUserVisibleHint());
             aolPlayerAdapter.setResumed(isResumed);

@@ -22,7 +22,9 @@ public class SinglePlaybackRestriction implements Middleware {
     private final Listener listener;
     private Boolean shouldPlay;
 
-    public SinglePlaybackRestriction(@NonNull ArrayList<Pair<Binder, VideoBufferingRestriction>> binders, @NonNull Pair<Binder, VideoBufferingRestriction> binderWithRestriction, @NonNull Listener listener) {
+    public SinglePlaybackRestriction(@NonNull ArrayList<Pair<Binder, VideoBufferingRestriction>> binders,
+                                     @NonNull Pair<Binder, VideoBufferingRestriction> binderWithRestriction,
+                                     @NonNull Listener listener) {
         this.binders = binders;
         this.binderWithRestriction = binderWithRestriction;
         this.listener = listener;

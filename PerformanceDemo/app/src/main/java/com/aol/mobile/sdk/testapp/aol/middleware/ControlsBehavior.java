@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
+import android.util.Log;
 
 import com.aol.mobile.sdk.controls.ContentControls;
 import com.aol.mobile.sdk.player.Binder;
@@ -36,6 +37,7 @@ public class ControlsBehavior implements Middleware {
     @Nullable
     private String videoUrl;
     private Boolean wereControlsVisible;
+    private boolean isActive = false;
 
     public ControlsBehavior(@NonNull Binder binder, @NonNull Handler handler) {
         this.binder = binder;
@@ -48,7 +50,6 @@ public class ControlsBehavior implements Middleware {
                 player.setMute(isMuted);
             }
         };
-
 
         extraVM.throughControlsClickAction = __ -> {
             extraVM.areControlsVisible = !extraVM.areControlsVisible;
@@ -142,7 +143,8 @@ public class ControlsBehavior implements Middleware {
         boolean isPlaying = video != null && video.isPlaying;
         boolean isBuffering = video != null && video.isBuffering;
         boolean hasAd = props.viewState == Properties.ViewState.Ad;
-        controlsVM.isSeekerVisible = isPlaying || isSeeking || (isBuffering && !hasAd);
+        controlsVM.isSeekerVisible = isActive || isPlaying || isSeeking || (isBuffering && !hasAd);
+        Log.w("TTTT", "isSeekerVisible " + controlsVM.isSeekerVisible + " isActive " + isActive + "  " + hashCode());
 
         if (!controlsVM.isSeekerVisible) {
             controlsVM.seekerCurrentTimeText = null;
@@ -180,5 +182,9 @@ public class ControlsBehavior implements Middleware {
         }
 
         return result;
+    }
+
+    public void setIsActive(boolean active) {
+        isActive = active;
     }
 }

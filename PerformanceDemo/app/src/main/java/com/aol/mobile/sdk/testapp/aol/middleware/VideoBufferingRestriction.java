@@ -19,6 +19,8 @@ public class VideoBufferingRestriction implements Middleware {
     private Long contentPos;
     @Nullable
     private Long adPos;
+    @Nullable
+    private ControlsBehavior controlsBehavior;
 
     @Override
     public void process(@NonNull Properties props, @NonNull ContentControls.ViewModel controlsVM,
@@ -55,6 +57,10 @@ public class VideoBufferingRestriction implements Middleware {
             isBufferingRestricted = bufferingRestricted;
 
             extraAction = isBufferingRestricted ? ExtraAction.SAVE_POSITION : ExtraAction.RESTORE_POSITION;
+
+            if (controlsBehavior != null) {
+                controlsBehavior.setIsActive(!isBufferingRestricted);
+            }
         }
     }
 
@@ -70,6 +76,11 @@ public class VideoBufferingRestriction implements Middleware {
                 setBufferingRestricted(true);
             }
         }
+    }
+
+    public void setControlsBehaviour(@NonNull ControlsBehavior controlsBehavior) {
+        this.controlsBehavior = controlsBehavior;
+        controlsBehavior.setIsActive(!isBufferingRestricted);
     }
 
     private enum ExtraAction {IDLE, SAVE_POSITION, RESTORE_POSITION}

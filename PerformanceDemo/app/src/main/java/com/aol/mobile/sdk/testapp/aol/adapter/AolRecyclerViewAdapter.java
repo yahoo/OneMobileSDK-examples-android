@@ -193,12 +193,14 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
                 public void success(@NonNull Player player) {
                     Pair<Binder, VideoBufferingRestriction> binderAndRestriction = binders.get(position);
                     Binder binder = binderAndRestriction.first;
+                    ControlsBehavior controlsBehavior = new ControlsBehavior(binder, new Handler());
                     VideoBufferingRestriction bufferingRestriction = binderAndRestriction.second;
                     bufferingRestriction.setBufferingRestricted(true);
+                    bufferingRestriction.setControlsBehaviour(controlsBehavior);
 
                     binder.addMiddleware(new SinglePlaybackRestriction(binders, binderAndRestriction, pos -> lastPlayedItemPos = pos));
                     binder.addMiddleware(bufferingRestriction);
-                    binder.addMiddleware(new ControlsBehavior(binder, new Handler()));
+                    binder.addMiddleware(controlsBehavior);
                     binder.addMiddleware(new AdBufferedInBackground());
 
                     binder.setPlayer(player);
