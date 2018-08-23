@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
-import android.util.Log;
 
 import com.aol.mobile.sdk.controls.ContentControls;
 import com.aol.mobile.sdk.player.Binder;
@@ -37,7 +36,7 @@ public class ControlsBehavior implements Middleware {
     @Nullable
     private String videoUrl;
     private Boolean wereControlsVisible;
-    private boolean isActive = false;
+    private boolean isActive;
 
     public ControlsBehavior(@NonNull Binder binder, @NonNull Handler handler) {
         this.binder = binder;
@@ -144,7 +143,6 @@ public class ControlsBehavior implements Middleware {
         boolean isBuffering = video != null && video.isBuffering;
         boolean hasAd = props.viewState == Properties.ViewState.Ad;
         controlsVM.isSeekerVisible = isActive || isPlaying || isSeeking || (isBuffering && !hasAd);
-        Log.w("TTTT", "isSeekerVisible " + controlsVM.isSeekerVisible + " isActive " + isActive + "  " + hashCode());
 
         if (!controlsVM.isSeekerVisible) {
             controlsVM.seekerCurrentTimeText = null;

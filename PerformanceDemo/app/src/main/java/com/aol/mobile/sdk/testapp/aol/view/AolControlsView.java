@@ -92,7 +92,6 @@ public class AolControlsView extends FrameLayout implements ContentControls {
                     break;
 
                 case R.id.full_screen:
-                    extraVM.onControlsClickAction.onChange(null);
                     if (fullscreenListener != null)
                         fullscreenListener.onFullscreenChanged(!isFullscreen);
                     break;
