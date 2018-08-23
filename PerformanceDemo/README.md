@@ -44,8 +44,10 @@ Open the directory in Android Studio, build and run.  That's it!
 AolRecyclerViewAdapter的视图页面现在是异步填充的了，不占用主UI线程，这样会更快，延迟更小。
 
 4. Loading spinner is decorated with fancy background plate, for more details see [this resource](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/res/drawable/loading_bg.xml#L1) 
-and [this layout](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/res/layout/aol_custom_controls.xml#L126)
+and [this layout](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/res/layout/aol_custom_controls.xml#L126).    
+旋转载入条现在使用了一个很华丽的背景，详情请见[背景源代码xml](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/res/drawable/loading_bg.xml#L1) 以及 [播放器页面源代码xml](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/res/layout/aol_custom_controls.xml#L126)
 
 5. No explicit [orientation](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/AndroidManifest.xml#L15) is set for main Activity, but when app goes fullscreen it is using 
 [full sensor orientation](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/java/com/aol/mobile/sdk/testapp/AolFragment.java#L84) 
-for convenience.
+for convenience.                                         
+MainActivity 中没有预先设置[屏幕方向](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/AndroidManifest.xml#L15), 但当应用进入全屏时则使用了[full sensor orientation](https://github.com/aol-public/OneMobileSDK-examples-android/blob/34ddb2050ac66293d4b37fc21d202fcc75b51985/PerformanceDemo/app/src/main/java/com/aol/mobile/sdk/testapp/AolFragment.java#L84) 
