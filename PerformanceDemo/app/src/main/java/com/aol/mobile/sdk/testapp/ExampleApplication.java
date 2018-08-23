@@ -9,6 +9,7 @@ public final class ExampleApplication extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
+        // Setting up library for thubmnails loading
         Picasso picasso = new Picasso.Builder(this)
                 .indicatorsEnabled(false)
                 .downloader(new UrlConnectionDownloader(this))

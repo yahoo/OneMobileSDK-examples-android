@@ -48,7 +48,7 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
     @NonNull
     private final ArrayList<String> videoIds = new ArrayList<>();
     @NonNull
-    private final HashSet<Binder> visibleItemBinders = new HashSet<>();
+    private final HashSet<Integer> visibleItemBinders = new HashSet<>();
     @NonNull
     private final OneSDK oneSDK;
     @NonNull
@@ -126,7 +126,7 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
             View childAt = ((FrameLayout) view).getChildAt(0);
 
             if (childAt == playerView) {
-                visibleItemBinders.add(binder);
+                visibleItemBinders.add(i);
                 if (isResumed) {
                     binder.onResume();
                 }
@@ -144,7 +144,7 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
 
             if (childAt == playerView) {
                 binder.onPause();
-                visibleItemBinders.remove(binder);
+                visibleItemBinders.remove(i);
             }
         }
     }
@@ -193,12 +193,14 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
                 public void success(@NonNull Player player) {
                     Pair<Binder, VideoBufferingRestriction> binderAndRestriction = binders.get(position);
                     Binder binder = binderAndRestriction.first;
+                    ControlsBehavior controlsBehavior = new ControlsBehavior(binder, new Handler());
                     VideoBufferingRestriction bufferingRestriction = binderAndRestriction.second;
                     bufferingRestriction.setBufferingRestricted(true);
+                    bufferingRestriction.setControlsBehaviour(controlsBehavior);
 
                     binder.addMiddleware(new SinglePlaybackRestriction(binders, binderAndRestriction, pos -> lastPlayedItemPos = pos));
                     binder.addMiddleware(bufferingRestriction);
-                    binder.addMiddleware(new ControlsBehavior(binder, new Handler()));
+                    binder.addMiddleware(controlsBehavior);
                     binder.addMiddleware(new AdBufferedInBackground());
 
                     binder.setPlayer(player);
@@ -252,11 +254,17 @@ public final class AolRecyclerViewAdapter extends RecyclerView.Adapter<AolRecycl
     public void setResumed(boolean resumed) {
         isResumed = resumed;
 
-        for (Binder binder : visibleItemBinders) {
-            if (isResumed && isActive)
-                binder.onResume();
-            else
-                binder.onPause();
+        for (Integer index : visibleItemBinders) {
+            Pair<Binder, VideoBufferingRestriction> binderWithRestriction = binders.get(index);
+
+            if (binderWithRestriction != null) {
+                Binder binder = binderWithRestriction.first;
+
+                if (isResumed && isActive)
+                    binder.onResume();
+                else
+                    binder.onPause();
+            }
         }
     }
 

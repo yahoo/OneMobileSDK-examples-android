@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -27,7 +26,7 @@ public class AolControlsView extends FrameLayout implements ContentControls {
     @NonNull
     private android.widget.Button btnReplay;
     @NonNull
-    private ProgressBar pbLoading;
+    private FrameLayout pbLoading;
     @NonNull
     private TextView tvTimeCurrent;
     @NonNull
@@ -93,7 +92,6 @@ public class AolControlsView extends FrameLayout implements ContentControls {
                     break;
 
                 case R.id.full_screen:
-                    extraVM.onControlsClickAction.onChange(null);
                     if (fullscreenListener != null)
                         fullscreenListener.onFullscreenChanged(!isFullscreen);
                     break;

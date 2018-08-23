@@ -24,7 +24,7 @@ import com.aol.mobile.sdk.testapp.aol.adapter.AolRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR;
 
 @SuppressLint("ValidFragment")
 public class AolFragment extends Fragment {
@@ -81,7 +81,7 @@ public class AolFragment extends Fragment {
                     screenOrientation = activity.getRequestedOrientation();
 
                     recyclerView.postDelayed(() ->
-                            activity.setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE), 300);
+                            activity.setRequestedOrientation(SCREEN_ORIENTATION_FULL_SENSOR), 300);
                 } else {
                     recyclerView.postDelayed(() -> {
                         if (screenOrientation != null) {
@@ -133,6 +133,14 @@ public class AolFragment extends Fragment {
         }
     }
 
+    public void setResumed(boolean isResumed) {
+        this.isResumed = isResumed;
+
+        if (aolPlayerAdapter != null) {
+            aolPlayerAdapter.setResumed(isResumed);
+        }
+    }
+
     private List<String> getVideoIds() {
         videoIds.clear();
 
@@ -160,13 +168,5 @@ public class AolFragment extends Fragment {
         videoIds.add("5b582e8e9b74b63d4057fee6");
 
         return videoIds;
-    }
-
-    public void setResumed(boolean isResumed) {
-        this.isResumed = isResumed;
-
-        if (aolPlayerAdapter != null) {
-            aolPlayerAdapter.setResumed(isResumed);
-        }
     }
 }

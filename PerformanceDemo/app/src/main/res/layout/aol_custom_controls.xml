@@ -15,7 +15,7 @@
         android:id="@+id/ll_controls_root_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#20000000"
+        android:background="@color/bg_curtain_color"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -122,10 +122,19 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <ProgressBar
+
+    <FrameLayout
         android:id="@+id/pb_loading"
-        style="@style/AolCustomProgressStyle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/loading_bg"
+        android:padding="4dp">
+
+        <ProgressBar
+            style="@style/AolCustomProgressStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 </FrameLayout>

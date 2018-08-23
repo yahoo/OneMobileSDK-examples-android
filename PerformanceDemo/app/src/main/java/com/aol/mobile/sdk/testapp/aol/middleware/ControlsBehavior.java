@@ -36,6 +36,7 @@ public class ControlsBehavior implements Middleware {
     @Nullable
     private String videoUrl;
     private Boolean wereControlsVisible;
+    private boolean isActive;
 
     public ControlsBehavior(@NonNull Binder binder, @NonNull Handler handler) {
         this.binder = binder;
@@ -48,7 +49,6 @@ public class ControlsBehavior implements Middleware {
                 player.setMute(isMuted);
             }
         };
-
 
         extraVM.throughControlsClickAction = __ -> {
             extraVM.areControlsVisible = !extraVM.areControlsVisible;
@@ -142,7 +142,7 @@ public class ControlsBehavior implements Middleware {
         boolean isPlaying = video != null && video.isPlaying;
         boolean isBuffering = video != null && video.isBuffering;
         boolean hasAd = props.viewState == Properties.ViewState.Ad;
-        controlsVM.isSeekerVisible = isPlaying || isSeeking || (isBuffering && !hasAd);
+        controlsVM.isSeekerVisible = isActive || isPlaying || isSeeking || (isBuffering && !hasAd);
 
         if (!controlsVM.isSeekerVisible) {
             controlsVM.seekerCurrentTimeText = null;
@@ -180,5 +180,9 @@ public class ControlsBehavior implements Middleware {
         }
 
         return result;
+    }
+
+    public void setIsActive(boolean active) {
+        isActive = active;
     }
 }
