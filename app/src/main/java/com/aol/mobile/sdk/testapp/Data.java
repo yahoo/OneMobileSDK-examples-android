@@ -9,4 +9,5 @@ public class Data {
     public static final String RESTRICTED_VIDEO_ID = "59396b1c9e45105fa1b599c9";
     public static final String[] ARRAY_OF_VIDEOS = {"593967be9e45105fa1b5939a", "577cc23d50954952cc56bc47", "5939698f85eb427b86aa0a14"};
     public static final String PLAYLIST_ID = "577cc27b88d2ff0d0f5acc71";
+    public static final String BLANK_VIDEO = "5ade13e620565f4be5e35c72";
 }
