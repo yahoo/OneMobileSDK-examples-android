@@ -1,5 +1,5 @@
 <a name="head"></a>
-# O2 Mobile SDK Tutorial - for Android [![Build Status](https://travis-ci.org/aol-public/OneMobileSDK-examples-android.svg?branch=master)](https://travis-ci.org/aol-public/OneMobileSDK-examples-android)
+# O2 Mobile SDK Tutorial - for Android [![Build Status](https://travis-ci.com/OathAdPlatforms/OneMobileSDK-examples-android.svg?branch=master)](https://travis-ci.com/OathAdPlatforms/OneMobileSDK-examples-android)
 
 Welcome to the O2 Mobile SDK (OMSDK or SDK). The purpose of this document is to provide you with everything you need to know to get started with and use the O2 Mobile SDK. The audience for this document is an experienced Android Developer with in-depth knowledge of using Android Studio, the Java Programming Language, Android OS API programming, and Gradle build system.
 
@@ -181,13 +181,13 @@ The default player controls UX implementation includes 4 optional app-specific s
 
 The complete implementation of the default player controls UX is open-source and provided to serve as an implementation sample of its own. Feel free to inspect it, copy it, modify it at will.
 
-The default Android Custom Controls UX implementation repo can be found here: 
+The default Android Custom Controls UX implementation repo can be found here:
 [O2 Mobile SDK Controls for Android](https://github.com/aol-public/OneMobileSDK-controls-android)
 
 <a name="qs"></a>
 ## TLDR: Quick Start
 
-Want to dive right in, quickly and directly, you can jump here to get started using our legacy documentation: 
+Want to dive right in, quickly and directly, you can jump here to get started using our legacy documentation:
 [Getting Started for Android](https://github.com/aol-public/OneMobileSDK-releases-android/blob/maven/README.md)
 
 <a name="t1"></a>
@@ -355,7 +355,7 @@ For various reasons, the SDK may fail to initialize. The most common reason for 
 ```
 {
 	"error": "Not found - com.company.ungregisteredapp"
-} 
+}
 ```
 
 ##### _Tutorial Sample:_
@@ -365,7 +365,7 @@ For various reasons, the SDK may fail to initialize. The most common reason for 
 <a name="t42"></a>
 #### Player Initialization Errors
 
-For various reasons, the `Player` may fail to initialize. 
+For various reasons, the `Player` may fail to initialize.
 
 ##### _Tutorial Sample:_
 
