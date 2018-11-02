@@ -22,8 +22,6 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.aol.mobile.sdk.chromecast.OneCastManager;
-import com.aol.mobile.sdk.chromecast.OneCastManager.CastListener;
 import com.aol.mobile.sdk.controls.ContentControls;
 import com.aol.mobile.sdk.testapp.R;
 
@@ -65,8 +63,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @NonNull
     private android.widget.Button btnChooseTrack;
     @NonNull
-    private LinearLayout llCastContainer;
-    @NonNull
     private final LinkedList<ViewModel.TrackOptionVM> ccTracks = new LinkedList<>();
     @NonNull
     private final LinkedList<ViewModel.TrackOptionVM> audioTracks = new LinkedList<>();
@@ -77,8 +73,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @Nullable
     private Listener listener;
     private boolean isControlsVisible = true;
-    @NonNull
-    private OneCastManager oneCastManager;
 
     public FullyCustomContentControls(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -111,10 +105,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         llTracksAndCastContainer = findViewById(R.id.ll_tracks_and_cast_container);
         btnChooseTrack = findViewById(R.id.btn_choose_track);
         btnChooseTrack.setOnClickListener(clickListener);
-        llCastContainer = findViewById(R.id.ll_cast_container);
-
-        oneCastManager = new OneCastManager(context);
-        llCastContainer.addView(oneCastManager.constructCastButton());
     }
 
     @NonNull
@@ -233,22 +223,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
     @Override
     public void setListener(@Nullable final Listener listener) {
         this.listener = listener;
-
-        oneCastManager.setCastListener(new CastListener() {
-            @Override
-            public void enableCast() {
-                if (listener != null) {
-                    listener.onCastEnabled();
-                }
-            }
-
-            @Override
-            public void disableCast() {
-                if (listener != null) {
-                    listener.onCastDisabled();
-                }
-            }
-        });
     }
 
     @Override
@@ -278,7 +252,6 @@ public class FullyCustomContentControls extends LinearLayout implements ContentC
         tvTimeLeft.setText(viewModel.seekerTimeLeftText);
         btnChooseTrack.setVisibility(viewModel.isTrackChooserButtonVisible ? VISIBLE : INVISIBLE);
         btnChooseTrack.setEnabled(viewModel.isTrackChooserButtonEnabled);
-        llCastContainer.setVisibility(viewModel.isCastButtonVisible ? VISIBLE : INVISIBLE);
 
         this.audioTracks.clear();
         this.audioTracks.addAll(viewModel.audioTracks);

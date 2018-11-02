@@ -13,13 +13,18 @@ android {
     }
 
     lintOptions {
+        abortOnError false
         disable 'GradleCompatible'
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
 dependencies {
     implementation ONE_MOBILE_SDK
-    implementation ONE_MOBILE_CHROMECAST
     implementation APP_COMPAT
     implementation RESOURCES
     implementation PICASSO
