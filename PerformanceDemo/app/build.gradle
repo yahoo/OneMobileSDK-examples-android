@@ -27,8 +27,8 @@ android {
 
 dependencies {
     // OneMobile SDK
-    implementation 'com.aol.one.publishers.android:controls-minimal:1.17'
-    implementation('com.aol.one.publishers.android:sdk:2.23') {
+    implementation 'com.aol.one.publishers.android:controls-minimal:1.18.1'
+    implementation('com.aol.one.publishers.android:sdk:2.24.1') {
         exclude group: 'com.aol.one.publishers.android', module: 'controls'
         exclude group: 'com.google.android.gms'
         exclude group: 'com.squareup.duktape'
