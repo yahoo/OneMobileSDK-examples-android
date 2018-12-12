@@ -18,7 +18,7 @@ class SubtitleSwitcher implements PlayerStateObserver {
     private final Locale language;
     private int currentIndex = -1;
 
-    public SubtitleSwitcher(@NonNull Player player, @NonNull Locale language) {
+    SubtitleSwitcher(@NonNull Player player, @NonNull Locale language) {
         this.player = player;
         this.language = language;
     }
@@ -37,7 +37,7 @@ class SubtitleSwitcher implements PlayerStateObserver {
             for (TextTrack track : tracks) {
                 if (track.isEmpty) continue;
 
-                if (track.title.toLowerCase(language).contains(language.getLanguage().toLowerCase(language))) {
+                if (track.language.toLowerCase().equals(language.getLanguage().toLowerCase())) {
                     player.selectTextTrack(track);
                     break;
                 }
