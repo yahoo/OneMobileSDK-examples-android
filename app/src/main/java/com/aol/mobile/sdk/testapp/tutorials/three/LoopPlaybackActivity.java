@@ -2,6 +2,7 @@ package com.aol.mobile.sdk.testapp.tutorials.three;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.aol.mobile.sdk.testapp.Data;
 import com.aol.mobile.sdk.testapp.R;
 
 public class LoopPlaybackActivity extends AppCompatActivity {
+    private Handler handler = new Handler();
     private PlayerStateObserver playerStateObserver;
 
     @Override
@@ -32,8 +34,13 @@ public class LoopPlaybackActivity extends AppCompatActivity {
             @Override
             public void onPlayerStateChanged(@NonNull Properties properties) {
                 VideoProperties videoProperties = properties.playlistItem.video;
-                if (videoProperties != null && videoProperties.time != null && videoProperties.time.progress == 1) {
-                    playerFragment.getBinder().getPlayer().replay();
+                if (properties.playlist.isLastVideo && videoProperties != null && videoProperties.time != null && videoProperties.time.progress == 1) {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            playerFragment.getBinder().getPlayer().playAtIndex(0);
+                        }
+                    });
                 }
             }
         };
@@ -54,7 +61,7 @@ public class LoopPlaybackActivity extends AppCompatActivity {
 
     private void useSDK(@NonNull OneSDK oneSDK, @NonNull final PlayerFragment playerFragment) {
         oneSDK.createBuilder()
-                .buildForVideo(Data.VIDEO_ID, new Player.Callback() {
+                .buildForPlaylist(Data.PLAYLIST_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
                         player.addPlayerStateObserver(playerStateObserver);
