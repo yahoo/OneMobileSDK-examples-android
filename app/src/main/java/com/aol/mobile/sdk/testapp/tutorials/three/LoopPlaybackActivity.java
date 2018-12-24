@@ -12,7 +12,6 @@ import com.aol.mobile.sdk.player.OneSDK;
 import com.aol.mobile.sdk.player.OneSDKBuilder;
 import com.aol.mobile.sdk.player.Player;
 import com.aol.mobile.sdk.player.PlayerStateObserver;
-import com.aol.mobile.sdk.player.model.properties.Properties;
 import com.aol.mobile.sdk.player.model.properties.VideoProperties;
 import com.aol.mobile.sdk.player.view.PlayerFragment;
 import com.aol.mobile.sdk.testapp.Data;
@@ -30,18 +29,13 @@ public class LoopPlaybackActivity extends AppCompatActivity {
         FragmentManager fm = getFragmentManager();
         final PlayerFragment playerFragment = (PlayerFragment) fm.findFragmentById(R.id.player_fragment);
 
-        playerStateObserver = new PlayerStateObserver() {
-            @Override
-            public void onPlayerStateChanged(@NonNull Properties properties) {
-                VideoProperties videoProperties = properties.playlistItem.video;
-                if (properties.playlist.isLastVideo && videoProperties != null && videoProperties.time != null && videoProperties.time.progress == 1) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            playerFragment.getBinder().getPlayer().playAtIndex(0);
-                        }
-                    });
-                }
+        playerStateObserver = properties -> {
+            VideoProperties videoProperties = properties.playlistItem.video;
+            if (properties.playlist.isLastVideo && videoProperties != null && videoProperties.time != null && videoProperties.time.progress == 1) {
+                handler.post(() -> {
+                    playerFragment.getBinder().getPlayer().replay();
+                    playerFragment.getBinder().getPlayer().playAtIndex(0);
+                });
             }
         };
 
