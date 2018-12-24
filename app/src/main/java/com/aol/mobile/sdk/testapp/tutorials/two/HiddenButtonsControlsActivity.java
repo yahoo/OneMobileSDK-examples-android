@@ -42,10 +42,11 @@ public class HiddenButtonsControlsActivity extends AppCompatActivity {
                 .buildForPlaylist(Data.PLAYLIST_ID, new Player.Callback() {
                     @Override
                     public void success(@NonNull Player player) {
-                        playerFragment.getPlayerView()
-                                .setContentControls(
-                                        new HiddenButtonsControls(HiddenButtonsControlsActivity.this)
-                                );
+                        if (playerFragment.getPlayerView() != null) {
+                            playerFragment.getPlayerView()
+                                    .setContentControls(
+                                            new HiddenButtonsControls(HiddenButtonsControlsActivity.this));
+                        }
                         playerFragment.getBinder().setPlayer(player);
                     }
 

@@ -83,6 +83,11 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/fully_custom_content_controls" />
 
+        <activity
+            android:name=".tutorials.two.AdsOnlyPlayerActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/ads_only_player" />
+
 
         <activity
             android:name=".tutorials.three.TutorialThreeActivity"

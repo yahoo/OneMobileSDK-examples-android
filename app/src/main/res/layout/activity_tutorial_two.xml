@@ -49,4 +49,10 @@
         android:layout_height="wrap_content"
         android:text="@string/fully_custom_content_controls" />
 
+    <Button
+        android:id="@+id/btn_ads_only_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ads_only_player" />
+
 </LinearLayout>
