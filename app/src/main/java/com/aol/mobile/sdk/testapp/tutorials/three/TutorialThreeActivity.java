@@ -24,6 +24,8 @@ public class TutorialThreeActivity extends AppCompatActivity implements View.OnC
         btnLoopPlayback.setOnClickListener(this);
         Button btnInspectVideoType = findViewById(R.id.btn_inspect_video_type);
         btnInspectVideoType.setOnClickListener(this);
+        Button btnPreviousNext = findViewById(R.id.btn_previous_next);
+        btnPreviousNext.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +43,9 @@ public class TutorialThreeActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_inspect_video_type:
                 targetActivity = InspectVideoTypeActivity.class;
+                break;
+            case R.id.btn_previous_next:
+                targetActivity = HookingPreviousNextActivity.class;
                 break;
             default:
                 return;
