@@ -31,4 +31,10 @@
         android:layout_height="wrap_content"
         android:text="@string/inspect_video_type" />
 
+    <Button
+        android:id="@+id/btn_previous_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/previous_next" />
+
 </LinearLayout>

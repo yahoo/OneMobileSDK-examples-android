@@ -341,7 +341,7 @@ There are many legitimate app UX circumstance, that can dictate the dynamicness 
 
 ##### _Tutorial Sample:_
 
-> _sample coming soon_
+> [Manually Hooking up Previous or Next Videos](https://github.com/aol-public/OneMobileSDK-examples-android/tree/master/app/src/main/java/com/aol/mobile/sdk/testapp/tutorials/three/HookingPreviousNextActivity.java)
 
 <a name="t4"></a>
 ## Tutorial 4 – Error Handling in the SDK
